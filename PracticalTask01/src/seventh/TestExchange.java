@@ -6,9 +6,9 @@ public class TestExchange {
 		// TODO Auto-generated method stub
 		double a = 3;
 		double b = 7;
-		
-		Exchange.change(a,b);
-		
+
+		Exchange.change(a, b);
+
 	}
 
 }

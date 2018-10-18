@@ -11,7 +11,7 @@ public class TestAverage {
 		double aGeom = Average.getGeomAvr(a);
 		double bArith = Average.getArithAvr(b);
 		double bGeom = Average.getGeomAvr(b);
-		
+
 		System.out.println("Arithmetic average of a is " + aArith);
 		System.out.println("Geometry average of a is " + aGeom);
 		System.out.println("Arithmetic average of b is " + bArith);
