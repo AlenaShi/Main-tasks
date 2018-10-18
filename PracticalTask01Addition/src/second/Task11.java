@@ -1,7 +1,7 @@
 package second;
 
 public class Task11 {
-	public static boolean isPalindrom (double a) {
+	public static boolean isPalindrom(double a) {
 		int a4 = (int) a % 10;
 		int a3 = (int) (a /= 10) % 10;
 		int a2 = (int) (a /= 10) % 10;

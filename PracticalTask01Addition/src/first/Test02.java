@@ -7,9 +7,9 @@ public class Test02 {
 		double a = 3;
 		double b = 4;
 		double c = -1;
-		
+
 		boolean positive = Task02.isPositive(a, b, c);
-		
+
 		System.out.println("Are numbers positive? " + positive);
 	}
 

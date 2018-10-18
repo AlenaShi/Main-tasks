@@ -6,10 +6,10 @@ public class Test06 {
 		// TODO Auto-generated method stub
 		double a = -2;
 		double b = 2;
-		double c = 0;
-		
+		double c = 22;
+
 		boolean even = Task06.areEven(a, b, c);
-		
+
 		System.out.println("Are the numbers even? " + even);
 	}
 

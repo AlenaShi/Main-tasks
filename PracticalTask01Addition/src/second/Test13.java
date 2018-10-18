@@ -7,9 +7,9 @@ public class Test13 {
 		double a = 2;
 		double b = 2;
 		double c = 1.4;
-		
+
 		boolean triangular = Task13.isTriangular(a, b, c);
-		
+
 		System.out.println("Is this a triangular? " + triangular);
 	}
 
