@@ -6,10 +6,10 @@ public class Test05 {
 		// TODO Auto-generated method stub
 		int a = 28;
 		int b = 2;
-		int c = 2000;
+		int c = 1996;
 		int a1 = 29;
 		int b1 = 2;
-		int c1 = 2000;
+		int c1 = 1996;
 		int a2 = 29;
 		int b2 = 2;
 		int c2 = 2001;
