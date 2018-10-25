@@ -2,13 +2,15 @@ package first;
 
 public class Task05 {
 	public static String getNextDay(int a, int b, int c) {
+		String date = "";
 		if (!isEndOfMonthNotFebruary(a, b)) {
-			return ++a + "." + b + "." + c;
+			date = ++a + "." + b + "." + c;
 		} else if (b != 12) {
-			return 1 + "." + ++b + "." + c;
+			date = 1 + "." + ++b + "." + c;
 		} else {
-			return 1 + "." + 1 + "." + ++c;
+			date = 1 + "." + 1 + "." + ++c;
 		}
+		return date;
 	}
 
 	public static boolean isEndOfMonthNotFebruary(int a, int b) {
