@@ -7,13 +7,15 @@ public class Task01 {
 	public static final int HEAD_GR_300 = YOUNG * 3 + (OLD - YOUNG) * 2 + 3;
 
 	public static int getHeadNum(double age) {
+		int head = 0;
 		if (age >= OLD) {
-			return (int) age - OLD + HEAD_GR_300;
+			head = (int) age - OLD + HEAD_GR_300;
 		} else if (age >= YOUNG) {
-			return (int) (age - YOUNG) * 2 + HEAD_GR_200;
+			head = (int) (age - YOUNG) * 2 + HEAD_GR_200;
 		} else {
-			return (int) age * 3 + 3;
+			head = (int) age * 3 + 3;
 		}
+		return head;
 	}
 
 	public static int getEyesNum(double age) {
