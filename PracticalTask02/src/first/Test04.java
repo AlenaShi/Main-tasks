@@ -8,7 +8,7 @@ public class Test04 {
 
 		String result = Task04.getMood(a);
 
-		View.print(result);
+		View.log(result);
 	}
 
 }

@@ -14,12 +14,12 @@ public class Test03 {
 		String resultVowel3A = Task03.isVowel3(a);
 		String resultVowel3B = Task03.isVowel3(b);
 
-		View.print("Is a a vowel? " + resultVowel1A);
-		View.print("Is b a vowel? " + resultVowel1B);
-		View.print("Is a a vowel? " + resultVowel2A);
-		View.print("Is b a vowel? " + resultVowel2B);
-		View.print("Is a a vowel? " + resultVowel3A);
-		View.print("Is b a vowel? " + resultVowel3B);
+		View.log("Is a a vowel? " + resultVowel1A);
+		View.log("Is b a vowel? " + resultVowel1B);
+		View.log("Is a a vowel? " + resultVowel2A);
+		View.log("Is b a vowel? " + resultVowel2B);
+		View.log("Is a a vowel? " + resultVowel3A);
+		View.log("Is b a vowel? " + resultVowel3B);
 	}
 
 }

@@ -4,7 +4,7 @@ public class Test02 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		View.print("This program detects triangular and founds react triangular.");
+		View.log("This program detects triangular and founds react triangular.");
 		double x1 = 1;
 		double y1 = 1;
 		double x2 = 1;
@@ -14,7 +14,7 @@ public class Test02 {
 
 		String result = Task02Logic.getTriangularLogic(x1, y1, x2, y2, x3, y3);
 
-		View.print(result);
+		View.log(result);
 	}
 
 }

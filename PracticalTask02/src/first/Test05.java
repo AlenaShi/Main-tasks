@@ -18,9 +18,9 @@ public class Test05 {
 		String date1 = Task05Logic.getNextDayLogic(a1, b1, c1);
 		String date2 = Task05Logic.getNextDayLogic(a2, b2, c2);
 
-		View.print(date);
-		View.print(date1);
-		View.print(date2);
+		View.log(date);
+		View.log(date1);
+		View.log(date2);
 	}
 
 }
