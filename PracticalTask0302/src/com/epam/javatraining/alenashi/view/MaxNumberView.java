@@ -8,7 +8,7 @@ public class MaxNumberView {
 		// TODO Auto-generated method stub
 		int a = UserInput.getNumber();
 		int result = MaxNumber.getNumber(a);
-		View.print("max = " + result);
+		View.log("max = " + result);
 	}
 
 }

@@ -9,7 +9,7 @@ public class SimpleDividersView {
 		int a = UserInput.getNumber();
 		String result = SimpleDividers.getSimpleDividers(a);
 
-		View.print(result);
+		View.log(result);
 	}
 
 }

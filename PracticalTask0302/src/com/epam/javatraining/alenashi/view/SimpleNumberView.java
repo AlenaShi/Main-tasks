@@ -9,7 +9,7 @@ public class SimpleNumberView {
 		int a = UserInput.getNumber();
 		String result = SimpleNumber.isSimpleNumber(a);
 
-		View.print(result);
+		View.log(result);
 	}
 
 }
