@@ -7,4 +7,7 @@ public class View {
 	public static void log(String msg) {
 		LOG.info(msg);
 	}
+	public static void log(int msg) {
+		LOG.info(msg);
+	}
 }
