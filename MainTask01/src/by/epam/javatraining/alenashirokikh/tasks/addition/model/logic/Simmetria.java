@@ -13,4 +13,9 @@ public class Simmetria {
 		}
 		return true;
 	}
+
+	public static boolean isSimmetricSide(double[][] matrix) {
+		matrix = Transposition.transposeMatrix(matrix);
+		return Simmetria.isSimmetricMain(matrix);
+	}
 }
