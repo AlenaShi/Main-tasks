@@ -8,7 +8,7 @@ public class LocalMinTest {
 	@Test
 	public void testFindAverage() {
 		double[] array = { 1, 2, 3, 5, 2, 3 };
-		int index = 4;
+		int index = 0;
 		assertEquals(index, LocalMin.findLocalMin(array));
 	}
 }

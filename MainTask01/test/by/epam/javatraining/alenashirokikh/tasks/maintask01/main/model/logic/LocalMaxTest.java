@@ -8,7 +8,7 @@ public class LocalMaxTest {
 	@Test
 	public void testFindAverage() {
 		double[] array = { 1, 2, 3 };
-		int index = -1;
+		int index = 2;
 		assertEquals(index, LocalMax.findLocalMax(array));
 	}
 }

@@ -4,15 +4,26 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * The program finds local maximum.
  * 
  * @author Alena Shirokikh
- * @version 1.0 30.10.2018
+ * @version 1.1 1.11.2018
  */
 public class LocalMax {
 	public static int findLocalMax(double[] array) {
-		for (int i = 1; i < array.length - 1; i++) {
-			if (array[i] > array[i - 1] && array[i] > array[i + 1]) {
-				return i;
+		int result = -1;
+		if (array[0] > array[1]) {
+			result = 0;
+		} else {
+			for (int i = 1; i < array.length - 1; i++) {
+				if (array[i] > array[i - 1] && array[i] > array[i + 1]) {
+					result = i;
+					break;
+				}
 			}
 		}
-		return -1;// O(n)
+		if (result == -1) {
+			if (array[array.length - 1] > array[array.length - 2]) {
+				result = array.length - 1;
+			}
+		}
+		return result;// O(n)
 	}
 }
