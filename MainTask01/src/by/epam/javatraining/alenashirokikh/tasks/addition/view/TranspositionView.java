@@ -10,10 +10,10 @@ public class TranspositionView {
 		// TODO Auto-generated method stub
 		double[][] matrix = UserInput.readMatrixWithSize("Enter the matrix by columns");
 		matrix = Transposition.transposeMatrix(matrix);
-		String result="";
+		String result = "";
 		for (int i = 0; i < matrix.length; i++) {
 			for (int j = 0; j < matrix[0].length; j++) {
-				result+=matrix[i][j] + " ";
+				result += matrix[i][j] + " ";
 			}
 		}
 		View.log(result);
