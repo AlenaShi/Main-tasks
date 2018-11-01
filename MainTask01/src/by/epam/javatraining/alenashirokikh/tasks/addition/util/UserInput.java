@@ -1,4 +1,4 @@
-package by.epam.javatraining.alenashirokikh.tasks.maintask01.addition.util;
+package by.epam.javatraining.alenashirokikh.tasks.addition.util;
 
 /**
  * The program helps input number or the array with a given size.
