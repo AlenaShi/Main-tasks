@@ -9,9 +9,7 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 public class DescendingOrder {
 	public static boolean isOrderedDescending(double[] array) {
 		for (int i = 0; i < array.length - 1; i++) {
-			if (array[i] > array[i + 1]) {
-				continue;
-			} else {
+			if (array[i] < array[i + 1]) {
 				return false;
 			}
 		}
