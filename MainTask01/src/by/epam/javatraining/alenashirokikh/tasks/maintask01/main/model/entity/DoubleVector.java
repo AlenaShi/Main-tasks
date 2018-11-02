@@ -41,4 +41,15 @@ public class DoubleVector {
 		}
 	}
 
+	public String toString() {
+		StringBuilder str = new StringBuilder();
+		str.append("[");
+		for (int i = 0; i < array.length; i++) {
+			str.append(array[i]).append(", ");
+		}
+		str.append("]");
+		return str + "";
+
+	}
+
 }
