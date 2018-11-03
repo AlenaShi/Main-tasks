@@ -1,26 +1,39 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+
 /**
- * The program finds the average and the geometric main of the array.
+ * The program finds the average and the geometric average of the array.
  * 
  * @author Alena Shirokikh
- * @version 1.0 30.10.2018
+ * @version 2.0 2.11.2018
  */
 public class Average {
-	public static double findAverage(double[] array) {
-		double sum = array[0];
-		for (int i = 1; i < array.length; i++) {
-			sum += array[i];
+	/**
+	 * The method finds the average of the array.
+	 */
+	public static double findAverage(DoubleVector array) {
+		double sum = array.get(0);
+		final int size = array.size();
+		for (int i = 1; i < size; i++) {
+			sum += array.get(i);
 		}
-		return sum / array.length;//O(n)
+		return sum / size;// O(n)
 	}
 
-	public static double findGeometricMain(double[] array) {
-		double rate = 1d / array.length;
-		double multiplication = array[0];
-		for (int i = 1; i < array.length; i++) {
-			multiplication *= array[i];
+	/**
+	 * The method finds the geometric average of the array.
+	 */
+	public static double findGeometricAverage(DoubleVector array) {
+		final int size = array.size();
+		double rate = 1d / size;
+		double multiplication = 1;
+		for (int i = 0; i < size; i++) {
+			if (array.get(i) > 0) {
+				multiplication *= array.get(i);
+			} else {// return exception
+			}
 		}
-		return Math.pow(multiplication, rate);//O(n)
+		return Math.pow(multiplication, rate);// O(n)
 	}
 }

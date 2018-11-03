@@ -1,5 +1,7 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity;
 
+import java.util.Arrays;
+
 public class DoubleVector {
 	private double[] array;
 
@@ -7,6 +9,10 @@ public class DoubleVector {
 
 	public DoubleVector() {
 		this.array = new double[DEFAULT_SIZE];
+	}
+
+	public DoubleVector(int size) {
+		this.array = new double[size];
 	}
 
 	public DoubleVector(double[] array) {
@@ -33,7 +39,7 @@ public class DoubleVector {
 		}
 	}
 
-	public void set(double element, int index) {
+	public void set(int index, double element) {
 		if (array.length > index && index >= 0) {
 			array[index] = element;
 		} else {
@@ -41,14 +47,22 @@ public class DoubleVector {
 		}
 	}
 
+	public DoubleVector copyOfRange(int from, int to) {
+		return new DoubleVector(Arrays.copyOfRange(array, from, to));
+
+	}
+
 	public String toString() {
 		StringBuilder str = new StringBuilder();
 		str.append("[");
 		for (int i = 0; i < array.length; i++) {
-			str.append(array[i]).append(", ");
+			str.append(array[i]);
+			if (i != array.length - 1) {
+				str.append(", ");
+			}
 		}
 		str.append("]");
-		return str + "";
+		return str.toString();
 
 	}
 
