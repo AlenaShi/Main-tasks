@@ -1,21 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.view;
 
-/**
- * The program finds the average and the geometric main of the array.
- * 
- * @author Alena Shirokikh
- * @version 1.0 1.11.2018
- */
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic.Average;
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.util.UserInput;
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.util.View;
-
 public class AverageView {
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		double[] array = UserInput.readArrayWithSize("Enter the array");
+	public static String averageView(double average) {
+		return "The average is " + average + ".";
+	}
 
-		View.log("Average " + Average.findAverage(array));
-		View.log("Geometric main " +Average.findGeometricMain(array));
+	public static String geomAverageView(double geomAverage) {
+		return "The geometric average is " + geomAverage + ".";
 	}
 }
