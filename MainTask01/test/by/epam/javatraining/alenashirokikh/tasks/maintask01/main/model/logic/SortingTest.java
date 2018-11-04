@@ -2,15 +2,23 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Test;
 
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
 
 public class SortingTest {
+	private DoubleVector vector = null;
+
+	@After
+	public void destroy() {
+		vector = null;
+	}
+
 	@Test
 	public void testDoBubbleSortAscending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doBubbleSortAscending(vector);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -24,7 +32,7 @@ public class SortingTest {
 	@Test
 	public void testDoBubbleSortDescending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doBubbleSortDescending(vector);
 		double[] arrayResult = { 9, 8, 6, 5, 4, 3, 2 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -38,7 +46,7 @@ public class SortingTest {
 	@Test
 	public void testDoInsertionSortAscending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doInsertionSortAscending(vector);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -52,7 +60,7 @@ public class SortingTest {
 	@Test
 	public void testDoInsertionSortDescending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doInsertionSortDescending(vector);
 		double[] arrayResult = { 9, 8, 6, 5, 4, 3, 2 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -66,7 +74,7 @@ public class SortingTest {
 	@Test
 	public void testDoSelectionSortAscending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doSelectionSortAscending(vector);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -80,7 +88,7 @@ public class SortingTest {
 	@Test
 	public void testDoSelectionSortDescending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doSelectionSortDescending(vector);
 		double[] arrayResult = { 9, 8, 6, 5, 4, 3, 2 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -94,7 +102,7 @@ public class SortingTest {
 	@Test
 	public void testDoMergeSortOneNonSortedArray() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		vector = Sorting.doMergeSortOneNonSortedArrayAscending(vector);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -124,7 +132,7 @@ public class SortingTest {
 	@Test
 	public void testDoMergeSortOneNonSortedArrayDescending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		vector = Sorting.doMergeSortOneNonSortedArrayDescending(vector);
 		double[] arrayResult = { 9, 8, 6, 5, 4, 3, 2 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -154,7 +162,7 @@ public class SortingTest {
 	@Test
 	public void testDoQuickSortAscending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doQuickSortAscending(vector, 0, vector.size() - 1);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
 		DoubleVector expected = new DoubleVector(arrayResult);
@@ -168,7 +176,7 @@ public class SortingTest {
 	@Test
 	public void testDoQuickSortDescending() {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		DoubleVector vector = new DoubleVector(array);
+		vector = new DoubleVector(array);
 		Sorting.doQuickSortDescending(vector, 0, vector.size() - 1);
 		double[] arrayResult = { 9, 8, 6, 5, 4, 3, 2 };
 		DoubleVector expected = new DoubleVector(arrayResult);
