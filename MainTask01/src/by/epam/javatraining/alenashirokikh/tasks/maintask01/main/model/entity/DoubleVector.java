@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class DoubleVector {
 	private double[] array;
 
-	private static final int DEFAULT_SIZE = 10;
+	public static final int DEFAULT_SIZE = 10;
 
 	public DoubleVector() {
 		this.array = new double[DEFAULT_SIZE];
@@ -53,16 +53,15 @@ public class DoubleVector {
 	}
 
 	public String toString() {
-		StringBuilder str = new StringBuilder();
-		str.append("[");
+		StringBuilder builder = new StringBuilder("[");
 		for (int i = 0; i < array.length; i++) {
-			str.append(array[i]);
+			builder.append(array[i]);
 			if (i != array.length - 1) {
-				str.append(", ");
+				builder.append(", ");
 			}
 		}
-		str.append("]");
-		return str.toString();
+		builder.append("]");
+		return builder.toString();
 
 	}
 
