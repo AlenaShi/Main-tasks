@@ -32,24 +32,15 @@ public class DoubleVector {
 	}
 
 	public double get(int index) {
-		if (array.length > index && index >= 0) {
 			return array[index];
-		} else {
-			throw new IndexOutOfBoundsException("Index is out of bounds");
-		}
 	}
 
 	public void set(int index, double element) {
-		if (array.length > index && index >= 0) {
 			array[index] = element;
-		} else {
-			throw new IndexOutOfBoundsException("Index is out of bounds");
-		}
 	}
 
 	public DoubleVector copyOfRange(int from, int to) {
 		return new DoubleVector(Arrays.copyOfRange(array, from, to));
-
 	}
 
 	public String toString() {
