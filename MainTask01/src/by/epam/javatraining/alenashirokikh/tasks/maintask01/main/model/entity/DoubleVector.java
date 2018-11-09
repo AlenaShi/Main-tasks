@@ -32,17 +32,18 @@ public class DoubleVector {
 	}
 
 	public double get(int index) {
-			return array[index];
+		return array[index];
 	}
 
 	public void set(int index, double element) {
-			array[index] = element;
+		array[index] = element;
 	}
 
 	public DoubleVector copyOfRange(int from, int to) {
 		return new DoubleVector(Arrays.copyOfRange(array, from, to));
 	}
 
+	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder("[");
 		for (int i = 0; i < array.length; i++) {

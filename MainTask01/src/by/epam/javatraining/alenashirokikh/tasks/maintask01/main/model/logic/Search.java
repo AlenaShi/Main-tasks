@@ -1,20 +1,19 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
-
 /**
  * The program finds the element with using linear search.
  * 
  * @author Alena Shirokikh
  * @version 2.0 2.11.2018
  */
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+
 public class Search {
 	/**
 	 * The method finds the element with using linear search.
 	 */
 	public static int findElementByLinearSearch(DoubleVector array, double element) {
-		final int size = array.size();
-		for (int i = 0; i < size; i++) {
+		for (int i = 0; i < array.size(); i++) {
 			if (element == array.get(i)) {
 				return i;
 			}

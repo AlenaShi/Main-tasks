@@ -13,8 +13,7 @@ public class Order {
 	 * The method finds if the array is in the ascending order.
 	 */
 	public static boolean isOrderedAscending(DoubleVector array) {
-		final int size = array.size();
-		for (int i = 1; i < size; i++) {
+		for (int i = 1; i < array.size(); i++) {
 			if (array.get(i) < array.get(i - 1)) {
 				return false;
 			}
@@ -26,8 +25,7 @@ public class Order {
 	 * The method finds if the array is in the descending order.
 	 */
 	public static boolean isOrderedDescending(DoubleVector array) {
-		final int size = array.size();
-		for (int i = 0; i < size - 1; i++) {
+		for (int i = 0; i < array.size() - 1; i++) {
 			if (array.get(i) < array.get(i + 1)) {
 				return false;
 			}

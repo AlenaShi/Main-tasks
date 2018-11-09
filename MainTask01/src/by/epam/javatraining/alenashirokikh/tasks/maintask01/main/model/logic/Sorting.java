@@ -16,11 +16,11 @@ public class Sorting {
 	public static DoubleVector doBubbleSortAscending(DoubleVector array) {
 		int k = 1;
 		int count = 1;
-		int size = array.size();
 		double temp = 0;
+
 		while (count != 0) {
 			count = 0;
-			for (int i = 0; i < size - k; i++) {
+			for (int i = 0; i < array.size() - k; i++) {
 				if (array.get(i) > array.get(i + 1)) {
 					temp = array.get(i + 1); // swap items
 					array.set(i + 1, array.get(i));
@@ -40,11 +40,11 @@ public class Sorting {
 	public static DoubleVector doBubbleSortDescending(DoubleVector array) {
 		int k = 1;
 		int count = 1;
-		int size = array.size();
 		double temp = 0;
+
 		while (count != 0) {
 			count = 0;
-			for (int i = 0; i < size - k; i++) {
+			for (int i = 0; i < array.size() - k; i++) {
 				if (array.get(i) < array.get(i + 1)) {
 					temp = array.get(i + 1); // swap items
 					array.set(i + 1, array.get(i));
@@ -65,8 +65,8 @@ public class Sorting {
 	public static DoubleVector doInsertionSortAscending(DoubleVector array) {
 		double element = 0;
 		int j = 0;
-		int size = array.size();
-		for (int i = 1; i < size; i++) {
+
+		for (int i = 1; i < array.size(); i++) {
 			element = array.get(i);
 			j = i;
 			while (j > 0 && element < array.get(j - 1)) {// compare current
@@ -88,8 +88,8 @@ public class Sorting {
 	public static DoubleVector doInsertionSortDescending(DoubleVector array) {
 		double element = 0;
 		int j = 0;
-		int size = array.size();
-		for (int i = 1; i < size; i++) {
+
+		for (int i = 1; i < array.size(); i++) {
 			element = array.get(i);
 			j = i;
 			while (j > 0 && element > array.get(j - 1)) {// compare current
@@ -110,11 +110,11 @@ public class Sorting {
 	 */
 	public static DoubleVector doSelectionSortAscending(DoubleVector array) {
 		int min = 0;
-		int size = array.size();
 		double temp = 0;
-		for (int j = 0; j < size - 1; j++) {
+
+		for (int j = 0; j < array.size() - 1; j++) {
 			min = j;
-			for (int i = j + 1; i < size; i++) {
+			for (int i = j + 1; i < array.size(); i++) {
 				if (array.get(i) < array.get(min)) {
 					min = i;
 				}
@@ -134,11 +134,11 @@ public class Sorting {
 	 */
 	public static DoubleVector doSelectionSortDescending(DoubleVector array) {
 		int max = 0;
-		int size = array.size();
 		double temp = 0;
-		for (int j = 0; j < size - 1; j++) {
+
+		for (int j = 0; j < array.size() - 1; j++) {
 			max = j;
-			for (int i = j + 1; i < size; i++) {
+			for (int i = j + 1; i < array.size(); i++) {
 				if (array.get(i) > array.get(max)) {
 					max = i;
 				}
@@ -160,14 +160,13 @@ public class Sorting {
 		int j = 0;
 		int k = 0;
 		int i = 0;
-		int size1 = array1.size();
-		int size2 = array2.size();
-		DoubleVector array = new DoubleVector(size1 + size2);
+		DoubleVector array = new DoubleVector(array1.size() + array2.size());
 
-		while (i < size1) {
-			if (j >= size2 || array1.get(i) <= array2.get(j)) { // choose the
-																// smallest
-																// value
+		while (i < array1.size()) {
+			if (j >= array2.size() || array1.get(i) <= array2.get(j)) { // choose
+																		// the
+				// smallest
+				// value
 				array.set(k, array1.get(i));
 				k++;
 				i++;
@@ -177,7 +176,7 @@ public class Sorting {
 				j++;
 			}
 		}
-		while (j < size2) {
+		while (j < array2.size()) {
 			array.set(k, array2.get(j));
 			j++;
 			k++;
@@ -188,6 +187,7 @@ public class Sorting {
 
 	public static DoubleVector doMergeSortOneNonSortedArrayAscending(DoubleVector array) {
 		int size = array.size();
+
 		if (size < 2) {
 			return array;
 		}
@@ -206,12 +206,10 @@ public class Sorting {
 		int j = 0;
 		int k = 0;
 		int i = 0;
-		int size1 = array1.size();
-		int size2 = array2.size();
-		DoubleVector array = new DoubleVector(size1 + size2);
+		DoubleVector array = new DoubleVector(array1.size() + array2.size());
 
-		while (i < size1) {
-			if (j >= size2 || array1.get(i) >= array2.get(j)) {
+		while (i < array1.size()) {
+			if (j >= array2.size() || array1.get(i) >= array2.get(j)) {
 				array.set(k, array1.get(i));
 				k++;
 				i++;
@@ -221,7 +219,7 @@ public class Sorting {
 				j++;
 			}
 		}
-		while (j < size2) {
+		while (j < array2.size()) {
 			array.set(k, array2.get(j));
 			k++;
 			j++;
@@ -231,13 +229,13 @@ public class Sorting {
 	}
 
 	public static DoubleVector doMergeSortOneNonSortedArrayDescending(DoubleVector array) {
-		int size = array.size();
-		if (size < 2) {
+
+		if (array.size() < 2) {
 			return array;
 		}
-		int mid = size / 2;
+		int mid = array.size() / 2;
 		DoubleVector array1 = array.copyOfRange(0, mid);
-		DoubleVector array2 = array.copyOfRange(mid, size);
+		DoubleVector array2 = array.copyOfRange(mid, array.size());
 		return doMergeSortTwoSortedArraysDescending(doMergeSortOneNonSortedArrayDescending(array1),
 				doMergeSortOneNonSortedArrayDescending(array2));
 	}

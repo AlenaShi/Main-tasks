@@ -4,30 +4,32 @@ package by.epam.javatraining.alenashirokikh.tasks.addition.model.logic;
  * The program finds the extreme values.
  * 
  * @author Alena Shirokikh
- * @version 1.0 1.11.2018
+ * @version 2.0 3.11.2018
  */
+import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.DoubleMatrix;
+
+
 public class MatrixMaxMin {
-	public static double findMaxValue(double[][] matrix) {
-		double max = matrix[0][0];
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[0].length; j++) {
-				if (matrix[i][j] > max) {
-					max = matrix[i][j];
+	public static double findMaxValue(DoubleMatrix matrix) {
+		double max = matrix.get(0, 0);
+		for (int i = 0; i < matrix.size(); i++) {
+			for (int j = 0; j < matrix.size0(); j++) {
+				if (matrix.get(i, j) > max) {
+					max = matrix.get(i, j);
 				}
 			}
 		}
 		return max;
 	}
 
-	public static double findMinValue(double[][] matrix) {
-		double min = matrix[0][0];
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[0].length; j++) {
-				if (matrix[i][j] < min) {
-					min = matrix[i][j];
+	public static double findMinValue(DoubleMatrix matrix) {
+		double min = matrix.get(0, 0);
+		for (int i = 0; i < matrix.size(); i++) {
+			for (int j = 0; j < matrix.size0(); j++) {
+				if (matrix.get(i, j) < min) {
+					min = matrix.get(i, j);
 				}
 			}
-
 		}
 		return min;
 	}

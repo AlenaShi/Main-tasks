@@ -1,13 +1,13 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
-
 /**
  * The program finds the extreme values.
  * 
  * @author Alena Shirokikh
  * @version 2.0 2.11.2018
  */
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+
 public class ExtremeFinder {
 	/**
 	 * The method finds maximum value.
@@ -15,8 +15,8 @@ public class ExtremeFinder {
 	 */
 	public static double findMaxValue(DoubleVector array) {
 		double max = array.get(0);
-		final int size = array.size();
-		for (int i = 1; i < size; i++) {
+
+		for (int i = 1; i < array.size(); i++) {
 			if (max < array.get(i)) {
 				max = array.get(i);
 			}
@@ -29,8 +29,8 @@ public class ExtremeFinder {
 	 */
 	public static double findMinValue(DoubleVector array) {
 		double min = array.get(0);
-		final int size = array.size();
-		for (int i = 1; i < size; i++) {
+
+		for (int i = 1; i < array.size(); i++) {
 			if (min > array.get(i)) {
 				min = array.get(i);
 			}
@@ -43,11 +43,11 @@ public class ExtremeFinder {
 	 */
 	public static int findLocalMax(DoubleVector array) {
 		int result = -1;
-		final int size = array.size();
+
 		if (array.get(0) > array.get(1)) {
 			result = 0;
 		} else {
-			for (int i = 1; i < size - 1; i++) {
+			for (int i = 1; i < array.size() - 1; i++) {
 				if (array.get(i) > array.get(i - 1) && array.get(i) > array.get(i + 1)) {
 					result = i;
 					break;
@@ -55,8 +55,8 @@ public class ExtremeFinder {
 			}
 		}
 		if (result == -1) {
-			if (array.get(size - 1) > array.get(size - 2)) {
-				result = size - 1;
+			if (array.get(array.size() - 1) > array.get(array.size() - 2)) {
+				result = array.size() - 1;
 			}
 		}
 		return result;// O(n)
@@ -67,11 +67,11 @@ public class ExtremeFinder {
 	 */
 	public static int findLocalMin(DoubleVector array) {
 		int result = -1;
-		final int size = array.size();
+
 		if (array.get(0) < array.get(1)) {
 			result = 0;
 		} else {
-			for (int i = 1; i < size - 1; i++) {
+			for (int i = 1; i < array.size() - 1; i++) {
 				if (array.get(i) < array.get(i - 1) && array.get(i) < array.get(i + 1)) {
 					result = i;
 					break;
@@ -79,8 +79,8 @@ public class ExtremeFinder {
 			}
 		}
 		if (result == -1) {
-			if (array.get(size - 1) < array.get(size - 2)) {
-				result = size - 1;
+			if (array.get(array.size() - 1) < array.get(array.size() - 2)) {
+				result = array.size() - 1;
 			}
 		}
 		return result;// O(n)
