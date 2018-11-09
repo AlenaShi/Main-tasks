@@ -14,10 +14,10 @@ public class ExtremeFinderController {
 		vector = Initializer.randomInit(vector, -10, 10);
 		view.log(vector);
 
-		double max = ExtremeFinder.findMaxValue(vector);
+		String max = ExtremeFinder.findMaxValue(vector);
 		view.log("Max value is " + max);
 
-		double min = ExtremeFinder.findMinValue(vector);
+		String min = ExtremeFinder.findMinValue(vector);
 		view.log("Min value is " + min);
 
 		double locMax = ExtremeFinder.findLocalMax(vector);

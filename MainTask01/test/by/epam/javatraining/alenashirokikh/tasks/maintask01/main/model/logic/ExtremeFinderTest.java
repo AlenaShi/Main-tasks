@@ -11,18 +11,16 @@ public class ExtremeFinderTest {
 	public void testFindMaxValue() {
 		double[] array = { 1, 7, 3, 4, 5, 6 };
 		DoubleVector vector = new DoubleVector(array);
-		double max = 7;
-		double delta = 0.001;
-		assertEquals(max, ExtremeFinder.findMaxValue(vector), delta);
+		String max = "7.0";
+		assertEquals(max, ExtremeFinder.findMaxValue(vector));
 	}
 
 	@Test
 	public void testFindMinValue() {
 		double[] array = { 1, 7, 3, 4, 5, 6 };
 		DoubleVector vector = new DoubleVector(array);
-		double min = 1;
-		double delta = 0.001;
-		assertEquals(min, ExtremeFinder.findMinValue(vector), delta);
+		String min = "1.0";
+		assertEquals(min, ExtremeFinder.findMinValue(vector));
 	}
 
 	@Test
