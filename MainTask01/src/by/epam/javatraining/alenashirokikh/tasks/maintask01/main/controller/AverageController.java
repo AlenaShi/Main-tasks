@@ -14,10 +14,10 @@ public class AverageController {
 		vector = Initializer.randomInit(vector, -10, 10);
 		view.log(vector);
 
-		double average = Average.findAverage(vector);
+		String average = Average.findAverage(vector);
 		view.log("The average is " + average);
 
-		double geomAverage = Average.findGeometricAverage(vector);
+		String geomAverage = Average.findGeometricAverage(vector);
 		view.log("The geometric average is " + geomAverage);
 	}
 }

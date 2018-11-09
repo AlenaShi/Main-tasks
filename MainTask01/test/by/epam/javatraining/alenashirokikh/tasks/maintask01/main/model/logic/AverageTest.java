@@ -11,18 +11,16 @@ public class AverageTest {
 	public void testFindAverage() {
 		double[] array = { 1, 2, 3, 1, 2, 3 };
 		DoubleVector vector = new DoubleVector(array);
-		double expected = 2;
-		double delta = 0.001;
-		assertEquals(expected, Average.findAverage(vector), delta);
+		String expected = "2.0";
+		assertEquals(expected, Average.findAverage(vector));
 	}
 
 	@Test
 	public void testFindGeometricAverage() {
 		double[] array = { 1, 1, 1, 1, 1, 1 };
 		DoubleVector vector = new DoubleVector(array);
-		double expected = 1;
-		double delta = 0.001;
-		assertEquals(expected, Average.findAverage(vector), delta);
+		String expected = "1.0";
+		assertEquals(expected, Average.findAverage(vector));
 	}
 
 }

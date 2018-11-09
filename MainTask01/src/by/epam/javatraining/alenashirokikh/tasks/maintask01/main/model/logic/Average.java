@@ -12,28 +12,34 @@ public class Average {
 	/**
 	 * The method finds the average of the array.
 	 */
-	public static double findAverage(DoubleVector array) {
-		double sum = array.get(0);
+	public static String findAverage(DoubleVector array) {
+		if (array != null) {
+			double sum = array.get(0);
 
-		for (int i = 1; i < array.size(); i++) {
-			sum += array.get(i);
-		}
-		return sum / array.size();// O(n)
+			for (int i = 1; i < array.size(); i++) {
+				sum += array.get(i);
+			}
+			return sum / array.size() + "";
+		} // O(n)
+		return "Array is null";
 	}
 
 	/**
 	 * The method finds the geometric average of the array.
 	 */
-	public static double findGeometricAverage(DoubleVector array) {
-		double rate = 1d / array.size();
-		double multiplication = 1;
+	public static String findGeometricAverage(DoubleVector array) {
+		if (array != null) {
+			double rate = 1d / array.size();
+			double multiplication = 1;
 
-		for (int i = 0; i < array.size(); i++) {
-			if (array.get(i) > 0) {
-				multiplication *= array.get(i);
-			} else {// return exception
+			for (int i = 0; i < array.size(); i++) {
+				if (array.get(i) > 0) {
+					multiplication *= array.get(i);
+				} else {// return exception
+				}
 			}
-		}
-		return Math.pow(multiplication, rate);// O(n)
+			return Math.pow(multiplication, rate) + "";
+		} // O(n)
+		return "Array is null";
 	}
 }
