@@ -7,10 +7,10 @@ import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.DoubleMat
 public class Initializer {
 	public static DoubleMatrix randomInit(DoubleMatrix vector, int from, int to) {
 		Random rand = new Random();
-		for (int i = 0; i < vector.size(); i++) {
-			for (int j = 0; j < vector.size0(); j++) {
+		for (int i = 0; i < vector.getMatrix().length; i++) {
+			for (int j = 0; j < vector.getMatrix()[0].length; j++) {
 
-				vector.set(i, j, (double) (rand.nextInt(to - from + 1) + from));
+				vector.getMatrix()[i][j] = (double) (rand.nextInt(to - from + 1) + from);
 			}
 		}
 		return vector;

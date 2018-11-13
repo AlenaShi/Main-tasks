@@ -8,19 +8,36 @@ import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.DoubleMat
 
 public class TranspositionTest {
 	@Test
-	public void testTransposition() {
-		double[][] matrixArray = { { 1, 2, 3 }, { 2, 1, 4 }, { 3, 4, 1 } };
-		DoubleMatrix matrix = new DoubleMatrix(matrixArray);
-		double[][] result = { { 3, 4, 1 }, { 2, 1, 4 }, { 1, 2, 3 } };
-		DoubleMatrix matrixResult = new DoubleMatrix(result);
-		double delta = 0.0001;
-		matrix = Transposition.transposeMatrix(matrix);
-		for (int i = 0; i < matrix.size(); i++) {
-			for (int j = 0; j < matrix.size(); j++) {
-				assertEquals(matrixResult.get(i, j), matrix.get(i, j), delta);
+	public void testTransposition1() {
+		double[][] matrixArray = { 
+				{ 1, 2, 3 },
+				{ 4, 5, 6 },
+				{ 7, 8, 9 } };
+		DoubleMatrix actual = new DoubleMatrix(matrixArray);
+		double[][] expected = { 
+				{ 1, 4, 7 },
+				{ 2, 5, 8 },
+				{ 3, 6, 9 } };
+		DoubleMatrix expectedMatrix = new DoubleMatrix(expected);
+		actual = Transposition.transposeMatrix(actual);
+		assertEquals(expectedMatrix.toString(), actual.toString());
+	}
 
-			}
-
-		}
+	@Test
+	public void testTransposition2() {
+		double[][] matrixArray = { 
+				{ 1, 2, 3, 4 },
+				{ 5, 6, 7, 8 },
+				{ 9, 10, 11, 12 },
+				{ 13, 14, 15, 16 } };
+		DoubleMatrix actual = new DoubleMatrix(matrixArray);
+		double[][] expected = {
+				{ 1, 5, 9, 13 },
+				{ 2, 6, 10, 14 },
+				{ 3, 7, 11, 15 }, 
+				{ 4, 8, 12, 16 } };
+		DoubleMatrix expectedMatrix = new DoubleMatrix(expected);
+		actual = Transposition.transposeMatrix(actual);
+		assertEquals(expectedMatrix.toString(), actual.toString());
 	}
 }
