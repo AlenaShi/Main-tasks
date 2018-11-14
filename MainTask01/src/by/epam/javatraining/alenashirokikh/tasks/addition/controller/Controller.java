@@ -1,6 +1,9 @@
 package by.epam.javatraining.alenashirokikh.tasks.addition.controller;
 
-import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.DoubleMatrix;
+import java.util.Arrays;
+
+import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.Matrix;
+import by.epam.javatraining.alenashirokikh.tasks.addition.model.exception.NullMatrixException;
 import by.epam.javatraining.alenashirokikh.tasks.addition.model.logic.AverageMatrix;
 import by.epam.javatraining.alenashirokikh.tasks.addition.model.logic.LocalMaxMin;
 import by.epam.javatraining.alenashirokikh.tasks.addition.model.logic.MatrixMaxMin;
@@ -15,40 +18,41 @@ public class Controller {
 	private static View view = View.getLogger(AverageController.class);
 
 	public static void main(String[] args) {
+		try {
+			Matrix vector = Creator.create();
+			vector = Initializer.randomInit(vector, -10, 10);
+			view.log(vector);
 
-		DoubleMatrix vector = Creator.create();
-		vector = Initializer.randomInit(vector, -10, 10);
-		view.log(vector);
+			double average = AverageMatrix.findAverage(vector);
+			view.log("The average is " + average);
 
-		double average = AverageMatrix.findAverage(vector);
-		view.log("The average is " + average);
+			double geomAverage = AverageMatrix.findGeometricMain(vector);
+			view.log("The geometric average is " + geomAverage);
 
-		double geomAverage = AverageMatrix.findGeometricMain(vector);
-		view.log("The geometric average is " + geomAverage);
+			double maxValue = MatrixMaxMin.findMaxValue(vector);
+			view.log("The max value is " + maxValue);
 
-		double maxValue = MatrixMaxMin.findMaxValue(vector);
-		view.log("The max value is " + maxValue);
+			double minValue = MatrixMaxMin.findMinValue(vector);
+			view.log("The min value is " + minValue);
 
-		double minValue = MatrixMaxMin.findMinValue(vector);
-		view.log("The min value is " + minValue);
+			int[] localMax = LocalMaxMin.findLocalMax(vector);
+			view.log("The localMax is " + Arrays.toString(localMax));
 
-		String localMax = LocalMaxMin.findLocalMax(vector);
-		view.log("The localMax is " + localMax);
+			int[] localMin = LocalMaxMin.findLocalMin(vector);
+			view.log("The localMin is " + Arrays.toString(localMin));
 
-		String localMin = LocalMaxMin.findLocalMin(vector);
-		view.log("The localMin is " + localMin);
+			boolean simmetry = Symmetria.isSimmetricMain(vector);
+			view.log("Is this matrix is simmetry by main diagonal? " + simmetry);
 
-		boolean simmetry = Symmetria.isSimmetricMain(vector);
-		view.log("Is this matrix is simmetry by main diagonal? " + simmetry);
+			boolean simmetrySide = Symmetria.isSimmetricSide(vector);
+			view.log("Is this matrix is simmetry by side diagonal? " + simmetrySide);
 
-		boolean simmetrySide = Symmetria.isSimmetricSide(vector);
-		view.log("Is this matrix is simmetry by side diagonal? " + simmetrySide);
+			view.log(vector);
 
-		view.log(vector);
-
-		DoubleMatrix matrixResult = Transposition.transposeMatrix(vector);
-		view.log("Matrix transposition: " + matrixResult);
-
+			Matrix matrixResult = Transposition.transposeMatrix(vector);
+			view.log("Matrix transposition: " + matrixResult);
+		} catch (NullMatrixException e) {
+			view.erLog("Matrix is null.");
+		}
 	}
-
 }

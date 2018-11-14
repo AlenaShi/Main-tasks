@@ -1,21 +1,21 @@
 package by.epam.javatraining.alenashirokikh.tasks.addition.util;
 
-import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.DoubleMatrix;
+import by.epam.javatraining.alenashirokikh.tasks.addition.model.entity.Matrix;
 
 public class Creator {
-	public static DoubleMatrix create() {
-		return new DoubleMatrix();
+	public static Matrix create() {
+		return new Matrix();
 	}
 
-	public static DoubleMatrix create(int size) {
-		return new DoubleMatrix(size);
+	public static Matrix create(int size) {
+		return new Matrix(size);
 	}
 
-	public static DoubleMatrix create(int size1, int size2) {
-		return new DoubleMatrix(size1, size2);
+	public static Matrix create(int size1, int size2) {
+		return new Matrix(size1, size2);
 	}
 
-	public static DoubleMatrix create(double[][] array) {
-		return new DoubleMatrix(array);
+	public static Matrix create(double[][] array) {
+		return new Matrix(array);
 	}
 }

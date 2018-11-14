@@ -27,6 +27,10 @@ public class View {
 		log.info(msg);
 	}
 
+	public void erLog(Object msg) {
+		log.error(msg);
+	}
+
 	public void print(Object msg) {
 		System.out.println(msg);
 	}
