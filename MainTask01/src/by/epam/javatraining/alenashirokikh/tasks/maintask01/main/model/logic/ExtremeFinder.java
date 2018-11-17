@@ -7,90 +7,101 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * @version 2.0 2.11.2018
  */
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class ExtremeFinder {
 	/**
 	 * The method finds maximum value.
 	 * 
+	 * @throws NullArrayException
+	 * 
 	 */
-	public static String findMaxValue(DoubleVector array) {
-		if (array != null) {
-			double max = array.get(0);
+	public static double findMaxValue(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double max = array.getArray()[0];
 
-			for (int i = 1; i < array.size(); i++) {
-				if (max < array.get(i)) {
-					max = array.get(i);
+			for (int i = 1; i < array.getArray().length; i++) {
+				if (max < array.getArray()[i]) {
+					max = array.getArray()[i];
 				}
 			}
-			return max + "";
+			return max;
+		} else {
+			throw new NullArrayException();
 		} // O(n)
-		return "Array is null";
 	}
 
 	/**
 	 * The method finds maximum value.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static String findMinValue(DoubleVector array) {
-		if (array != null) {
-			double min = array.get(0);
+	public static double findMinValue(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double min = array.getArray()[0];
 
-			for (int i = 1; i < array.size(); i++) {
-				if (min > array.get(i)) {
-					min = array.get(i);
+			for (int i = 1; i < array.getArray().length; i++) {
+				if (min > array.getArray()[i]) {
+					min = array.getArray()[i];
 				}
 			}
-			return min + "";
-		} // O(n)
-		return "Array is null";
-	}
+			return min;
+		} else {
+			throw new NullArrayException();
+		}
+	} // O(n)
 
 	/**
 	 * The method finds local maximum.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static int findLocalMax(DoubleVector array) {
+	public static int findLocalMax(DoubleVector array) throws NullArrayException {
 		int result = -1;
-		if (array != null) {
-			if (array.get(0) > array.get(1)) {
+		if (array != null && array.getArray().length != 0) {
+			if (array.getArray()[0] > array.getArray()[1]) {
 				result = 0;
 			} else {
-				for (int i = 1; i < array.size() - 1; i++) {
-					if (array.get(i) > array.get(i - 1) && array.get(i) > array.get(i + 1)) {
-						result = i;
-						break;
+				for (int i = 1; i < array.getArray().length - 1; i++) {
+					if (array.getArray()[i] > array.getArray()[i - 1]
+							&& array.getArray()[i] > array.getArray()[i + 1]) {
+						return i;
 					}
 				}
-			}
-			if (result == -1) {
-				if (array.get(array.size() - 1) > array.get(array.size() - 2)) {
-					result = array.size() - 1;
+				if (array.getArray()[array.getArray().length - 1] > array.getArray()[array.getArray().length - 2]) {
+					result = array.getArray().length - 1;
 				}
 			}
-		}
-		return result;// O(n)
+			return result;
+		} else {
+			throw new NullArrayException();
+		} // O(n)
 	}
 
 	/**
 	 * The method finds local minimum.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static int findLocalMin(DoubleVector array) {
+	public static int findLocalMin(DoubleVector array) throws NullArrayException {
 		int result = -1;
-		if (array != null) {
-			if (array.get(0) < array.get(1)) {
+		if (array != null && array.getArray().length != 0) {
+			if (array.getArray()[0] < array.getArray()[1]) {
 				result = 0;
 			} else {
-				for (int i = 1; i < array.size() - 1; i++) {
-					if (array.get(i) < array.get(i - 1) && array.get(i) < array.get(i + 1)) {
-						result = i;
-						break;
+				for (int i = 1; i < array.getArray().length - 1; i++) {
+					if (array.getArray()[i] < array.getArray()[i - 1]
+							&& array.getArray()[i] < array.getArray()[i + 1]) {
+						return i;
 					}
 				}
-			}
-			if (result == -1) {
-				if (array.get(array.size() - 1) < array.get(array.size() - 2)) {
-					result = array.size() - 1;
+				if (array.getArray()[array.getArray().length - 1] < array.getArray()[array.getArray().length - 2]) {
+					result = array.getArray().length - 1;
 				}
 			}
-		}
-		return result;// O(n)
+			return result;
+		} else {
+			throw new NullArrayException();
+		} // O(n)
 	}
 }

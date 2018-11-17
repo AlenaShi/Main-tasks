@@ -7,39 +7,43 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * @version 2.0 2.11.2018
  */
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class Average {
 	/**
 	 * The method finds the average of the array.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static String findAverage(DoubleVector array) {
-		if (array != null) {
-			double sum = array.get(0);
+	public static double findAverage(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double sum = array.getArray()[0];
 
-			for (int i = 1; i < array.size(); i++) {
-				sum += array.get(i);
+			for (int i = 1; i < array.getArray().length; i++) {
+				sum += array.getArray()[i];
 			}
-			return sum / array.size() + "";
-		} // O(n)
-		return "Array is null";
-	}
+			return sum / array.getArray().length;
+		} else {
+			throw new NullArrayException();
+		}
+	}// O(n)
 
 	/**
 	 * The method finds the geometric average of the array.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static String findGeometricAverage(DoubleVector array) {
-		if (array != null) {
-			double rate = 1d / array.size();
+	public static double findGeometricAverage(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double rate = 1d / array.getArray().length;
 			double multiplication = 1;
 
-			for (int i = 0; i < array.size(); i++) {
-				if (array.get(i) > 0) {
-					multiplication *= array.get(i);
-				} else {// return exception
-				}
+			for (int i = 0; i < array.getArray().length; i++) {
+				multiplication *= array.getArray()[i];
 			}
-			return Math.pow(multiplication, rate) + "";
-		} // O(n)
-		return "Array is null";
+			return Math.pow(multiplication, rate);
+		} else {
+			throw new NullArrayException();
+		}
 	}
-}
+}// O(n)

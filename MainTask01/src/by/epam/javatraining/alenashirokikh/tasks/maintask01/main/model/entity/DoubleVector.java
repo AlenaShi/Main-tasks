@@ -1,9 +1,9 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity;
 
-import java.util.Arrays;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class DoubleVector {
-	private double[] array;
+	private double[] array = new double[DEFAULT_SIZE];
 
 	public static final int DEFAULT_SIZE = 10;
 
@@ -12,49 +12,36 @@ public class DoubleVector {
 	}
 
 	public DoubleVector(int size) {
-		this.array = new double[size];
+		if (size > 0) {
+			this.array = new double[size];
+		}
 	}
 
 	public DoubleVector(double[] array) {
-		this.array = array;
+		if (array != null && array.length != 0) {
+			this.array = array;
+		}
 	}
 
 	public double[] getArray() {
 		return array;
 	}
 
-	public double[] setArray(double[] array) {
-		return this.array = array;
+	public void setArray(double[] array) throws NullArrayException {
+		if (array != null && array.length != 0) {
+			this.array = array;
+		} else {
+			throw new NullArrayException();
+		}
 	}
 
-	public int size() {
-		return array.length;
-	}
-
-	public double get(int index) {
-		return array[index];
-	}
-
-	public void set(int index, double element) {
-		array[index] = element;
-	}
-
-	public DoubleVector copyOfRange(int from, int to) {
-		return new DoubleVector(Arrays.copyOfRange(array, from, to));
-	}
-
-	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder("[");
 		for (int i = 0; i < array.length; i++) {
-			builder.append(array[i]);
-			if (i != array.length - 1) {
-				builder.append(", ");
-			}
+			builder.append(array[i]).append(", ");
 		}
-		builder.append("]");
+		builder.setCharAt(builder.length() - 2, ']');
+		builder.deleteCharAt(builder.length() - 1);
 		return builder.toString();
-
 	}
-
 }

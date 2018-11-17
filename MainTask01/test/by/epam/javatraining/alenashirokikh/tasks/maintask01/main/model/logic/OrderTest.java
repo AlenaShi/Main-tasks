@@ -1,14 +1,22 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class OrderTest {
 	private DoubleVector vector = null;
+
+	@Before
+	public void init() {
+		vector = new DoubleVector();
+	}
 
 	@After
 	public void destroy() {
@@ -16,37 +24,44 @@ public class OrderTest {
 	}
 
 	@Test
-	public void testIsOrderedAscending() {
+	public void testIsOrderedAscending() throws NullArrayException {
 		double[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 		vector = new DoubleVector(array);
-		boolean expected = true;
-		assertEquals(expected, Order.isOrderedAscending(vector));
+		assertTrue(Order.isOrderedAscending(vector));
 	}
 
 	@Test
-	public void testIsNotOrderedAscending() {
+	public void testIsNotOrderedAscending() throws NullArrayException {
 		double[] array = { 1, 2, 3, 5, 4, 6, 7, 8, 9, 10, 11 };
-		vector = new DoubleVector(array);
-		boolean expected = false;
-		assertEquals(expected, Order.isOrderedAscending(vector));
+		vector.setArray(array);
+		assertFalse(Order.isOrderedAscending(vector));
 	}
 
 	@Test
-	public void testIsOrderedDescending() {
+	public void testIsOrderedDescending() throws NullArrayException {
 		double[] array = { 50, 49, 45, 44, 34, 33, 32, 31, 29, 28, 26, 25, 24, 23, 22, 21, 19, 18, 17, 16, 15, 14, 13,
 				12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-		vector = new DoubleVector(array);
-		boolean expected = true;
-		assertEquals(expected, Order.isOrderedDescending(vector));
+		vector.setArray(array);
+		assertTrue(Order.isOrderedDescending(vector));
 	}
 
 	@Test
-	public void testIsNotOrderedDescending() {
+	public void testIsNotOrderedDescending() throws NullArrayException {
 		double[] array = { 50, 49, 45, 44, 34, 33, 32, 31, 29, 28, 26, 25, 24, 23, 22, 21, 19, 18, 17, 16, 15, 14, 13,
 				12, 11, 16, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
-		vector = new DoubleVector(array);
-		boolean expected = false;
-		assertEquals(expected, Order.isOrderedDescending(vector));
+		vector.setArray(array);
+		assertFalse(Order.isOrderedDescending(vector));
 	}
 
+	@Test(expected = NullArrayException.class)
+	public void testOrderAscendingNullException() throws NullArrayException {
+		vector = null;
+		Order.isOrderedAscending(vector);
+	}
+
+	@Test(expected = NullArrayException.class)
+	public void testOrderDescendingNullException() throws NullArrayException {
+		vector = null;
+		Order.isOrderedDescending(vector);
+	}
 }

@@ -7,29 +7,42 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * @version 2.0 2.11.2018
  */
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class Order {
 	/**
 	 * The method finds if the array is in the ascending order.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static boolean isOrderedAscending(DoubleVector array) {
-		for (int i = 1; i < array.size(); i++) {
-			if (array.get(i) < array.get(i - 1)) {
-				return false;
+	public static boolean isOrderedAscending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			for (int i = 1; i < array.getArray().length; i++) {
+				if (array.getArray()[i] < array.getArray()[i - 1]) {
+					return false;
+				}
 			}
-		}
-		return true;// O(n);
+			return true;
+		} else {
+			throw new NullArrayException();
+		} // O(n);
 	}
 
 	/**
 	 * The method finds if the array is in the descending order.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static boolean isOrderedDescending(DoubleVector array) {
-		for (int i = 0; i < array.size() - 1; i++) {
-			if (array.get(i) < array.get(i + 1)) {
-				return false;
+	public static boolean isOrderedDescending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			for (int i = 0; i < array.getArray().length - 1; i++) {
+				if (array.getArray()[i] < array.getArray()[i + 1]) {
+					return false;
+				}
 			}
+			return true;
+		} else {
+			throw new NullArrayException();
 		}
-		return true;// O(n)
 	}
-}
+}// O(n)

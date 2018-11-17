@@ -1,5 +1,7 @@
 package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
 
+import java.util.Arrays;
+
 /**
  * The program include sorting methods in the ascending and descending way: bubble sort, insertion sort, selection sort, merge sort,quick sort.
  * 
@@ -8,259 +10,347 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  */
 
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class Sorting {
 	/**
 	 * The method sorts an array in the ascending order with using bubble sort.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doBubbleSortAscending(DoubleVector array) {
-		int k = 1;
-		int count = 1;
-		double temp = 0;
+	public static DoubleVector doBubbleSortAscending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			int k = 1;
+			int count = 1;
+			double temp = 0;
 
-		while (count != 0) {
-			count = 0;
-			for (int i = 0; i < array.size() - k; i++) {
-				if (array.get(i) > array.get(i + 1)) {
-					temp = array.get(i + 1); // swap items
-					array.set(i + 1, array.get(i));
-					array.set(i, temp);
-					++count;
+			while (count != 0) {
+				count = 0;
+				for (int i = 0; i < array.getArray().length - k; i++) {
+					if (array.getArray()[i] > array.getArray()[i + 1]) {
+						temp = array.getArray()[i + 1]; // swap items
+						array.getArray()[i + 1] = array.getArray()[i];
+						array.getArray()[i] = temp;
+						++count;
+					}
 				}
+				++k; // reduce the number of elements due to the screening of
+						// large
+						// elements
 			}
-			++k; // reduce the number of elements due to the screening of large
-					// elements
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the descending order with using bubble sort.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doBubbleSortDescending(DoubleVector array) {
-		int k = 1;
-		int count = 1;
-		double temp = 0;
+	public static DoubleVector doBubbleSortDescending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			int k = 1;
+			int count = 1;
+			double temp = 0;
 
-		while (count != 0) {
-			count = 0;
-			for (int i = 0; i < array.size() - k; i++) {
-				if (array.get(i) < array.get(i + 1)) {
-					temp = array.get(i + 1); // swap items
-					array.set(i + 1, array.get(i));
-					array.set(i, temp);
-					++count;
+			while (count != 0) {
+				count = 0;
+				for (int i = 0; i < array.getArray().length - k; i++) {
+					if (array.getArray()[i] < array.getArray()[i + 1]) {
+						temp = array.getArray()[i + 1]; // swap items
+						array.getArray()[i + 1] = array.getArray()[i];
+						array.getArray()[i] = temp;
+						++count;
+					}
 				}
+				++k; // reduce the number of elements due to the screening of
+						// small
+				// elements
 			}
-			++k; // reduce the number of elements due to the screening of small
-			// elements
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the ascending order with using insertion
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doInsertionSortAscending(DoubleVector array) {
-		double element = 0;
-		int j = 0;
+	public static DoubleVector doInsertionSortAscending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double element = 0;
+			int j = 0;
 
-		for (int i = 1; i < array.size(); i++) {
-			element = array.get(i);
-			j = i;
-			while (j > 0 && element < array.get(j - 1)) {// compare current
-															// element
-															// with previous
+			for (int i = 1; i < array.getArray().length; i++) {
+				element = array.getArray()[i];
+				j = i;
+				while (j > 0 && element < array.getArray()[j - 1]) {// compare
+																	// current
+					// element
+					// with previous
 
-				array.set(j, array.get(j - 1));
-				array.set(j - 1, element);
-				--j;
+					array.getArray()[j] = array.getArray()[j - 1];
+					array.getArray()[j - 1] = element;
+					--j;
+				}
 			}
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the descending order with using insertion
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doInsertionSortDescending(DoubleVector array) {
-		double element = 0;
-		int j = 0;
+	public static DoubleVector doInsertionSortDescending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			double element = 0;
+			int j = 0;
 
-		for (int i = 1; i < array.size(); i++) {
-			element = array.get(i);
-			j = i;
-			while (j > 0 && element > array.get(j - 1)) {// compare current
-															// element
-															// with previous
+			for (int i = 1; i < array.getArray().length; i++) {
+				element = array.getArray()[i];
+				j = i;
+				while (j > 0 && element > array.getArray()[j - 1]) {// compare
+																	// current
+					// element
+					// with previous
 
-				array.set(j, array.get(j - 1));
-				array.set(j - 1, element);
-				--j;
+					array.getArray()[j] = array.getArray()[j - 1];
+					array.getArray()[j - 1] = element;
+					--j;
+				}
 			}
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the ascending order with using selection
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doSelectionSortAscending(DoubleVector array) {
-		int min = 0;
-		double temp = 0;
+	public static DoubleVector doSelectionSortAscending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			int min = 0;
+			double temp = 0;
 
-		for (int j = 0; j < array.size() - 1; j++) {
-			min = j;
-			for (int i = j + 1; i < array.size(); i++) {
-				if (array.get(i) < array.get(min)) {
-					min = i;
+			for (int j = 0; j < array.getArray().length - 1; j++) {
+				min = j;
+				for (int i = j + 1; i < array.getArray().length; i++) {
+					if (array.getArray()[i] < array.getArray()[min]) {
+						min = i;
+					}
+				}
+				if (min != j) {
+					temp = array.getArray()[min];
+					array.getArray()[min] = array.getArray()[j];
+					array.getArray()[j] = temp;
 				}
 			}
-			if (min != j) {
-				temp = array.get(min);
-				array.set(min, array.get(j));
-				array.set(j, temp);
-			}
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the descending order with using selection
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doSelectionSortDescending(DoubleVector array) {
-		int max = 0;
-		double temp = 0;
+	public static DoubleVector doSelectionSortDescending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			int max = 0;
+			double temp = 0;
 
-		for (int j = 0; j < array.size() - 1; j++) {
-			max = j;
-			for (int i = j + 1; i < array.size(); i++) {
-				if (array.get(i) > array.get(max)) {
-					max = i;
+			for (int j = 0; j < array.getArray().length - 1; j++) {
+				max = j;
+				for (int i = j + 1; i < array.getArray().length; i++) {
+					if (array.getArray()[i] > array.getArray()[max]) {
+						max = i;
+					}
+				}
+				if (max != j) {
+					temp = array.getArray()[max];
+					array.getArray()[max] = array.getArray()[j];
+					array.getArray()[j] = temp;
 				}
 			}
-			if (max != j) {
-				temp = array.get(max);
-				array.set(max, array.get(j));
-				array.set(j, temp);
-			}
-		}
-		return array;// O(n^2)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n^2)
 	}
 
 	/**
 	 * The method sorts an array in the ascending order with using merge
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doMergeSortTwoSortedArraysAscending(DoubleVector array1, DoubleVector array2) {
-		int j = 0;
-		int k = 0;
-		int i = 0;
-		DoubleVector array = new DoubleVector(array1.size() + array2.size());
+	public static DoubleVector doMergeSortTwoSortedArraysAscending(DoubleVector array1, DoubleVector array2)
+			throws NullArrayException {
+		if (array1 != null && array1.getArray().length != 0 && array2 != null && array2.getArray().length != 0) {
+			int j = 0;
+			int k = 0;
+			int i = 0;
+			DoubleVector array = new DoubleVector(array1.getArray().length + array2.getArray().length);
 
-		while (i < array1.size()) {
-			if (j >= array2.size() || array1.get(i) <= array2.get(j)) { // choose
-																		// the
-				// smallest
-				// value
-				array.set(k, array1.get(i));
-				k++;
-				i++;
-			} else {
-				array.set(k, array2.get(j));
-				k++;
-				j++;
+			while (i < array1.getArray().length) {
+				if (j >= array2.getArray().length || array1.getArray()[i] <= array2.getArray()[j]) { // choose
+					// the
+					// smallest
+					// value
+					array.getArray()[k] = array1.getArray()[i];
+					k++;
+					i++;
+				} else {
+					array.getArray()[k] = array2.getArray()[j];
+					k++;
+					j++;
+				}
 			}
-		}
-		while (j < array2.size()) {
-			array.set(k, array2.get(j));
-			j++;
-			k++;
-		}
+			while (j < array2.getArray().length) {
+				array.getArray()[k] = array2.getArray()[j];
+				j++;
+				k++;
+			}
 
-		return array;// O(n*logn)
+			return array;
+		} else
+
+		{
+			throw new NullArrayException();
+		} // O(n*logn)
 	}
 
-	public static DoubleVector doMergeSortOneNonSortedArrayAscending(DoubleVector array) {
-		int size = array.size();
+	public static DoubleVector doMergeSortOneNonSortedArrayAscending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			int size = array.getArray().length;
 
-		if (size < 2) {
-			return array;
+			if (size < 2) {
+				return array;
+			}
+			int mid = size / 2;
+			DoubleVector array1 = new DoubleVector(Arrays.copyOfRange(array.getArray(), 0, mid));
+			DoubleVector array2 = new DoubleVector(Arrays.copyOfRange(array.getArray(), mid, size));
+			return doMergeSortTwoSortedArraysAscending(doMergeSortOneNonSortedArrayAscending(array1),
+					doMergeSortOneNonSortedArrayAscending(array2));
+		} else
+
+		{
+			throw new NullArrayException();
 		}
-		int mid = size / 2;
-		DoubleVector array1 = array.copyOfRange(0, mid);
-		DoubleVector array2 = array.copyOfRange(mid, size);
-		return doMergeSortTwoSortedArraysAscending(doMergeSortOneNonSortedArrayAscending(array1),
-				doMergeSortOneNonSortedArrayAscending(array2));
 	}
 
 	/**
 	 * The method sorts an array in the descending order with using merge
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doMergeSortTwoSortedArraysDescending(DoubleVector array1, DoubleVector array2) {
-		int j = 0;
-		int k = 0;
-		int i = 0;
-		DoubleVector array = new DoubleVector(array1.size() + array2.size());
+	public static DoubleVector doMergeSortTwoSortedArraysDescending(DoubleVector array1, DoubleVector array2)
+			throws NullArrayException {
+		if (array1 != null && array1.getArray().length != 0 && array2 != null && array2.getArray().length != 0) {
+			int j = 0;
+			int k = 0;
+			int i = 0;
+			DoubleVector array = new DoubleVector(array1.getArray().length + array2.getArray().length);
 
-		while (i < array1.size()) {
-			if (j >= array2.size() || array1.get(i) >= array2.get(j)) {
-				array.set(k, array1.get(i));
-				k++;
-				i++;
-			} else {
-				array.set(k, array2.get(j));
+			while (i < array1.getArray().length) {
+				if (j >= array2.getArray().length || array1.getArray()[i] >= array2.getArray()[j]) {
+					array.getArray()[k] = array1.getArray()[i];
+					k++;
+					i++;
+				} else {
+					array.getArray()[k] = array2.getArray()[j];
+					k++;
+					j++;
+				}
+			}
+			while (j < array2.getArray().length) {
+				array.getArray()[k] = array2.getArray()[j];
 				k++;
 				j++;
 			}
-		}
-		while (j < array2.size()) {
-			array.set(k, array2.get(j));
-			k++;
-			j++;
-		}
 
-		return array;// O(n*logn)
+			return array;
+		} else {
+			throw new NullArrayException();
+		} // O(n*logn)
 	}
 
-	public static DoubleVector doMergeSortOneNonSortedArrayDescending(DoubleVector array) {
-
-		if (array.size() < 2) {
-			return array;
+	public static DoubleVector doMergeSortOneNonSortedArrayDescending(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			if (array.getArray().length < 2) {
+				return array;
+			}
+			int mid = array.getArray().length / 2;
+			DoubleVector array1 = new DoubleVector(Arrays.copyOfRange(array.getArray(), 0, mid));
+			DoubleVector array2 = new DoubleVector(Arrays.copyOfRange(array.getArray(), mid, array.getArray().length));
+			return doMergeSortTwoSortedArraysDescending(doMergeSortOneNonSortedArrayDescending(array1),
+					doMergeSortOneNonSortedArrayDescending(array2));
+		} else {
+			throw new NullArrayException();
 		}
-		int mid = array.size() / 2;
-		DoubleVector array1 = array.copyOfRange(0, mid);
-		DoubleVector array2 = array.copyOfRange(mid, array.size());
-		return doMergeSortTwoSortedArraysDescending(doMergeSortOneNonSortedArrayDescending(array1),
-				doMergeSortOneNonSortedArrayDescending(array2));
 	}
 
 	/**
 	 * The method sorts an array in the ascending order with using quick
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doQuickSortAscending(DoubleVector array, int left, int rightInclusive) {
+	public static DoubleVector doQuickAscendingSort(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			return doQuickSortAscending(array, 0, array.getArray().length - 1);
+		} else {
+			throw new NullArrayException();
+		}
+	}
+
+	private static DoubleVector doQuickSortAscending(DoubleVector array, int left, int rightInclusive) {
 		int i = left;
 		int j = rightInclusive;
-		double p = array.get((left + rightInclusive) / 2);
+		double p = array.getArray()[(left + rightInclusive) / 2];
 		double temp = 0;
 
 		do {
-			while (array.get(i) < p) {
+			while (array.getArray()[i] < p) {
 				i++;
 			}
-			while (array.get(j) > p) {
+			while (array.getArray()[j] > p) {
 				j--;
 			}
 			if (i <= j) {
-				temp = array.get(i); // swap items
-				array.set(i, array.get(j));
-				array.set(j, temp);
+				temp = array.getArray()[i]; // swap items
+				array.getArray()[i] = array.getArray()[j];
+				array.getArray()[j] = temp;
 				++i;
 				--j;
 			}
@@ -270,30 +360,41 @@ public class Sorting {
 		if (rightInclusive > i) {
 			doQuickSortAscending(array, i, rightInclusive);
 		}
-		return array;// O(n*logn)
+		return array;
+		// O(n*logn)
 	}
 
 	/**
 	 * The method sorts an array in the descending order with using quick
 	 * sorting.
+	 * 
+	 * @throws NullArrayException
 	 */
-	public static DoubleVector doQuickSortDescending(DoubleVector array, int left, int right) {
+	public static DoubleVector doQuickDescendingSort(DoubleVector array) throws NullArrayException {
+		if (array != null && array.getArray().length != 0) {
+			return doQuickSortDescending(array, 0, array.getArray().length - 1);
+		} else {
+			throw new NullArrayException();
+		}
+	}
+
+	private static DoubleVector doQuickSortDescending(DoubleVector array, int left, int right) {
 		int i = left;
 		int j = right;
-		double p = array.get((left + right) / 2);
+		double p = array.getArray()[(left + right) / 2];
 		double temp = 0;
 
 		do {
-			while (array.get(i) > p) {
+			while (array.getArray()[i] > p) {
 				i++;
 			}
-			while (array.get(j) < p) {
+			while (array.getArray()[j] < p) {
 				j--;
 			}
 			if (i <= j) {
-				temp = array.get(i); // swap items
-				array.set(i, array.get(j));
-				array.set(j, temp);
+				temp = array.getArray()[i]; // swap items
+				array.getArray()[i] = array.getArray()[j];
+				array.getArray()[j] = temp;
 				++i;
 				--j;
 			}
@@ -303,6 +404,7 @@ public class Sorting {
 		if (right > i) {
 			doQuickSortDescending(array, i, right);
 		}
-		return array;// O(n*logn)
+		return array;
+		// O(n*logn)
 	}
 }

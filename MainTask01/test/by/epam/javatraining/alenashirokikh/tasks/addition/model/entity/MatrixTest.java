@@ -6,6 +6,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.After;
 import org.junit.Test;
 
+import by.epam.javatraining.alenashirokikh.tasks.addition.model.exception.NullMatrixException;
+
 public class MatrixTest {
 	private Matrix vector = null;
 
@@ -15,28 +17,28 @@ public class MatrixTest {
 	}
 
 	@Test
-	public void testDoubleVectorDefault() {
+	public void testDoubleVectorDefault() throws NullMatrixException {
 		vector = new Matrix();
 		int expected = Matrix.DEFAULT_SIZE;
 		assertEquals(expected, vector.getMatrix().length);
 	}
 
 	@Test
-	public void testDoubleVectorWithRows() {
+	public void testDoubleVectorWithRows() throws NullMatrixException {
 		vector = new Matrix(4);
 		int expected = 4;
 		assertEquals(expected, vector.getMatrix().length);
 	}
 
 	@Test
-	public void testDoubleVectorWithRowsColumns() {
+	public void testDoubleVectorWithRowsColumns() throws NullMatrixException {
 		vector = new Matrix(4, 5);
 		int expected = 5;
 		assertEquals(expected, vector.getMatrix()[0].length);
 	}
 
 	@Test
-	public void testDoubleVector() {
+	public void testDoubleVector() throws NullMatrixException {
 		double[][] matrix = { { 1, 2, 3 }, { 1, 2, 3 } };
 		vector = new Matrix(matrix);
 		double[][] expected = { { 1, 2, 3 }, { 1, 2, 3 } };
@@ -47,7 +49,7 @@ public class MatrixTest {
 	}
 
 	@Test
-	public void testSetArray() {
+	public void testSetArray() throws NullMatrixException {
 		vector = new Matrix();
 		double[][] matrix = { { 1, 2, 3 }, { 1, 2, 3 } };
 		vector.setMatrix(matrix);
