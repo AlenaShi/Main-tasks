@@ -16,13 +16,26 @@ public class PrintFile implements Printable {
 	@Override
 	public void print(Object msg) {
 		// TODO Auto-generated method stub
-		String filename = "";
+		String filename = "D://task.txt";
 		try {
 			writeFile(filename, (String) msg);
 		} catch (FileNotFoundException e) {
-			printLog.erLog("File not found.");
+			printLog.printError("File for recording not found.");
 		} catch (IOException e) {
-			printLog.erLog("Problems with writing or closing file.");
+			printLog.printError("Problems with writing or closing file.");
+		}
+	}
+
+	@Override
+	public void printError(Object msg) {
+		// TODO Auto-generated method stub
+		String filename = "";
+		try {
+			writeFile(filename, "Exception: " + msg);
+		} catch (FileNotFoundException e) {
+			printLog.printError("File not found.");
+		} catch (IOException e) {
+			printLog.printError("Problems with writing or closing file.");
 		}
 	}
 

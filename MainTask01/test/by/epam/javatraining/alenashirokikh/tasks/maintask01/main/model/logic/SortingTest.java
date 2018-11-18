@@ -6,15 +6,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class SortingTest {
-	private DoubleVector vector;
+	private Conteiner vector;
 
 	@Before
 	public void init() {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 	}
 
 	@After
@@ -60,7 +60,7 @@ public class SortingTest {
 		vector.setArray(array);
 		Sorting.doInsertionSortAscending(vector);
 		double[] arrayResult = { 2, 3, 4, 5, 6, 8, 9 };
-		DoubleVector expected = new DoubleVector(arrayResult);
+		Conteiner expected = new Conteiner(arrayResult);
 		double delta = 0.001;
 		assertArrayEquals(expected.getArray(), vector.getArray(), delta);
 	}
@@ -74,7 +74,7 @@ public class SortingTest {
 	@Test
 	public void testDoInsertionSortDescending() throws NullArrayException {
 		double[] array = { 2, 4, 6, 8, 3, 5, 9 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		Sorting.doInsertionSortDescending(vector);
 		double[] expected = { 9, 8, 6, 5, 4, 3, 2 };
 		double delta = 0.001;
@@ -138,27 +138,27 @@ public class SortingTest {
 	@Test
 	public void testDoMergeSortTwoSortedArraysAscending() throws NullArrayException {
 		double[] array1 = { 1, 4, 8, 9, 11, 15, 17 };
-		DoubleVector vector1 = new DoubleVector(array1);
+		Conteiner vector1 = new Conteiner(array1);
 		double[] array2 = { 2, 5, 6, 13, 14 };
-		DoubleVector vector2 = new DoubleVector(array2);
+		Conteiner vector2 = new Conteiner(array2);
 		double[] expected = { 1, 2, 4, 5, 6, 8, 9, 11, 13, 14, 15, 17 };
 		double delta = 0.001;
-		DoubleVector sortVector = Sorting.doMergeSortTwoSortedArraysAscending(vector1, vector2);
+		Conteiner sortVector = Sorting.doMergeSortTwoSortedArraysAscending(vector1, vector2);
 		assertArrayEquals(expected, sortVector.getArray(), delta);
 	}
 
 	@Test(expected = NullArrayException.class)
 	public void testMergeSortTwoArrayNullException1() throws NullArrayException {
-		DoubleVector vector1 = new DoubleVector();
-		DoubleVector vector2 = new DoubleVector();
+		Conteiner vector1 = new Conteiner();
+		Conteiner vector2 = new Conteiner();
 		vector1 = null;
 		Sorting.doMergeSortTwoSortedArraysAscending(vector1, vector2);
 	}
 
 	@Test(expected = NullArrayException.class)
 	public void testMergeSortTwoArrayNullException2() throws NullArrayException {
-		DoubleVector vector1 = new DoubleVector();
-		DoubleVector vector2 = new DoubleVector();
+		Conteiner vector1 = new Conteiner();
+		Conteiner vector2 = new Conteiner();
 		vector2 = null;
 		Sorting.doMergeSortTwoSortedArraysAscending(vector1, vector2);
 	}
@@ -182,27 +182,27 @@ public class SortingTest {
 	@Test
 	public void testDoMergeSortTwoSortedArraysDescending() throws NullArrayException {
 		double[] array1 = { 17, 15, 11, 9, 8, 4, 1 };
-		DoubleVector vector1 = new DoubleVector(array1);
+		Conteiner vector1 = new Conteiner(array1);
 		double[] array2 = { 14, 13, 6, 5, 2 };
-		DoubleVector vector2 = new DoubleVector(array2);
+		Conteiner vector2 = new Conteiner(array2);
 		double[] expected = { 17, 15, 14, 13, 11, 9, 8, 6, 5, 4, 2, 1 };
 		double delta = 0.001;
-		DoubleVector sortVector = Sorting.doMergeSortTwoSortedArraysDescending(vector1, vector2);
+		Conteiner sortVector = Sorting.doMergeSortTwoSortedArraysDescending(vector1, vector2);
 		assertArrayEquals(expected, sortVector.getArray(), delta);
 	}
 
 	@Test(expected = NullArrayException.class)
 	public void testMergeSortTwoArrayDescendingNullException1() throws NullArrayException {
-		DoubleVector vector1 = new DoubleVector();
-		DoubleVector vector2 = new DoubleVector();
+		Conteiner vector1 = new Conteiner();
+		Conteiner vector2 = new Conteiner();
 		vector1 = null;
 		Sorting.doMergeSortTwoSortedArraysDescending(vector1, vector2);
 	}
 
 	@Test(expected = NullArrayException.class)
 	public void testMergeSortTwoArrayDescendingNullException2() throws NullArrayException {
-		DoubleVector vector1 = new DoubleVector();
-		DoubleVector vector2 = new DoubleVector();
+		Conteiner vector1 = new Conteiner();
+		Conteiner vector2 = new Conteiner();
 		vector2 = null;
 		Sorting.doMergeSortTwoSortedArraysDescending(vector1, vector2);
 	}

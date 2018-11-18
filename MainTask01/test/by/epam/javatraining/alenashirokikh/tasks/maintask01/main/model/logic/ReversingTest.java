@@ -5,11 +5,11 @@ import static org.junit.Assert.assertArrayEquals;
 import org.junit.After;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class ReversingTest {
-	private DoubleVector vector = null;
+	private Conteiner vector = null;
 
 	@After
 	public void destroy() {
@@ -19,7 +19,7 @@ public class ReversingTest {
 	@Test
 	public void testReverseArray() throws NullArrayException {
 		double[] array = { 1, 2, 3, 4, 5, 6 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		double[] expected = { 6, 5, 4, 3, 2, 1 };
 		vector = Reversing.reverseArray(vector);
 		double delta = 0.001;

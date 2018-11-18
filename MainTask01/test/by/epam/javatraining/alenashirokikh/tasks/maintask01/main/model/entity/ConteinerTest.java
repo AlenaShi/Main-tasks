@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
-public class DoubleVectorTest {
-	private DoubleVector vector = null;
+public class ConteinerTest {
+	private Conteiner vector = null;
 
 	@After
 	public void destroy() {
@@ -18,14 +18,14 @@ public class DoubleVectorTest {
 
 	@Test
 	public void testDoubleVectorDefault() throws NullArrayException {
-		vector = new DoubleVector();
-		int expected = DoubleVector.DEFAULT_SIZE;
+		vector = new Conteiner();
+		int expected = Conteiner.DEFAULT_SIZE;
 		assertEquals(expected, vector.getArray().length);
 	}
 
 	@Test
 	public void testDoubleVectorWithSize() throws NullArrayException {
-		vector = new DoubleVector(10);
+		vector = new Conteiner(10);
 		int expected = 10;
 		assertEquals(expected, vector.getArray().length);
 	}
@@ -33,7 +33,7 @@ public class DoubleVectorTest {
 	@Test
 	public void testDoubleVector() throws NullArrayException {
 		double[] array = { 1, 2, 3, 1, 2, 3 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		double[] expected = { 1, 2, 3, 1, 2, 3 };
 		double delta = 0.0001;
 		assertArrayEquals(expected, vector.getArray(), delta);
@@ -42,7 +42,7 @@ public class DoubleVectorTest {
 	@Test
 	public void testDoubleVector0() throws NullArrayException {
 		double[] array = {};
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		double[] expected = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 		double delta = 0.0001;
 		assertArrayEquals(expected, vector.getArray(), delta);
@@ -51,7 +51,7 @@ public class DoubleVectorTest {
 	@Test
 	public void testGetArray() throws NullArrayException {
 		double[] array = { 1, 2, 3, 5, 2, 0 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		double[] expected = { 1, 2, 3, 5, 2, 0 };
 		double delta = 0.0001;
 		assertArrayEquals(expected, vector.getArray(), delta);
@@ -59,7 +59,7 @@ public class DoubleVectorTest {
 
 	@Test
 	public void testSetArray() throws NullArrayException {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 		double[] array = { 1, 2, 3, 1, 2, 3 };
 		vector.setArray(array);
 		double[] expected = { 1, 2, 3, 1, 2, 3 };
@@ -69,14 +69,14 @@ public class DoubleVectorTest {
 
 	@Test(expected = NullArrayException.class)
 	public void testSetArray0Exception() throws NullArrayException {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 		double[] array = {};
 		vector.setArray(array);
 	}
 
 	@Test(expected = NullArrayException.class)
 	public void testSetArrayException() throws NullArrayException {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 		double[] array = null;
 		vector.setArray(array);
 	}
@@ -84,7 +84,7 @@ public class DoubleVectorTest {
 	@Test
 	public void testToString() {
 		double[] array = { 1, 2, 4, 1, 2, 3 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		String vectorStr = vector.toString();
 		String expectedString = "[1.0, 2.0, 4.0, 1.0, 2.0, 3.0]";
 		assertEquals(expectedString, vectorStr);

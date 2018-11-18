@@ -6,7 +6,7 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * @author Alena Shirokikh
  * @version 2.0 2.11.2018
  */
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class Search {
@@ -15,7 +15,7 @@ public class Search {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static int findElementByLinearSearch(DoubleVector array, double element) throws NullArrayException {
+	public static int findElementByLinearSearch(Conteiner array, double element) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			for (int i = 0; i < array.getArray().length; i++) {
 				if (element == array.getArray()[i]) {
@@ -34,7 +34,7 @@ public class Search {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static int findElementByBinarySearch(DoubleVector array, double element) throws NullArrayException {
+	public static int findElementByBinarySearch(Conteiner array, double element) throws NullArrayException {
 		// work with sorted array
 		if (array != null && array.getArray().length != 0) {
 			int index = -1;

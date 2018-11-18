@@ -12,6 +12,7 @@ public class PrintLog implements Printable {
 
 	private PrintLog() {
 	}
+
 	private static PrintLog instance;
 	private static Logger log;
 
@@ -23,14 +24,16 @@ public class PrintLog implements Printable {
 		return instance;
 	}
 
-	public void erLog(Object msg) {
-		log.error(msg);
-	}
-
 	@Override
 	public void print(Object msg) {
 		// TODO Auto-generated method stub
 		log.info(msg);
+	}
+
+	@Override
+	public void printError(Object msg) {
+		// TODO Auto-generated method stub
+		log.error(msg);
 	}
 
 }

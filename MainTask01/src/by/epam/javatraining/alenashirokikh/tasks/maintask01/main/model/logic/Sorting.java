@@ -9,7 +9,7 @@ import java.util.Arrays;
  * @version 2.0 2.11.2018
  */
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class Sorting {
@@ -18,7 +18,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doBubbleSortAscending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doBubbleSortAscending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			int k = 1;
 			int count = 1;
@@ -51,7 +51,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doBubbleSortDescending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doBubbleSortDescending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			int k = 1;
 			int count = 1;
@@ -85,7 +85,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doInsertionSortAscending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doInsertionSortAscending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			double element = 0;
 			int j = 0;
@@ -117,7 +117,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doInsertionSortDescending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doInsertionSortDescending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			double element = 0;
 			int j = 0;
@@ -149,7 +149,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doSelectionSortAscending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doSelectionSortAscending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			int min = 0;
 			double temp = 0;
@@ -181,7 +181,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doSelectionSortDescending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doSelectionSortDescending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			int max = 0;
 			double temp = 0;
@@ -213,13 +213,13 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doMergeSortTwoSortedArraysAscending(DoubleVector array1, DoubleVector array2)
+	public static Conteiner doMergeSortTwoSortedArraysAscending(Conteiner array1, Conteiner array2)
 			throws NullArrayException {
 		if (array1 != null && array1.getArray().length != 0 && array2 != null && array2.getArray().length != 0) {
 			int j = 0;
 			int k = 0;
 			int i = 0;
-			DoubleVector array = new DoubleVector(array1.getArray().length + array2.getArray().length);
+			Conteiner array = new Conteiner(array1.getArray().length + array2.getArray().length);
 
 			while (i < array1.getArray().length) {
 				if (j >= array2.getArray().length || array1.getArray()[i] <= array2.getArray()[j]) { // choose
@@ -249,7 +249,7 @@ public class Sorting {
 		} // O(n*logn)
 	}
 
-	public static DoubleVector doMergeSortOneNonSortedArrayAscending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doMergeSortOneNonSortedArrayAscending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			int size = array.getArray().length;
 
@@ -257,8 +257,8 @@ public class Sorting {
 				return array;
 			}
 			int mid = size / 2;
-			DoubleVector array1 = new DoubleVector(Arrays.copyOfRange(array.getArray(), 0, mid));
-			DoubleVector array2 = new DoubleVector(Arrays.copyOfRange(array.getArray(), mid, size));
+			Conteiner array1 = new Conteiner(Arrays.copyOfRange(array.getArray(), 0, mid));
+			Conteiner array2 = new Conteiner(Arrays.copyOfRange(array.getArray(), mid, size));
 			return doMergeSortTwoSortedArraysAscending(doMergeSortOneNonSortedArrayAscending(array1),
 					doMergeSortOneNonSortedArrayAscending(array2));
 		} else
@@ -274,13 +274,13 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doMergeSortTwoSortedArraysDescending(DoubleVector array1, DoubleVector array2)
+	public static Conteiner doMergeSortTwoSortedArraysDescending(Conteiner array1, Conteiner array2)
 			throws NullArrayException {
 		if (array1 != null && array1.getArray().length != 0 && array2 != null && array2.getArray().length != 0) {
 			int j = 0;
 			int k = 0;
 			int i = 0;
-			DoubleVector array = new DoubleVector(array1.getArray().length + array2.getArray().length);
+			Conteiner array = new Conteiner(array1.getArray().length + array2.getArray().length);
 
 			while (i < array1.getArray().length) {
 				if (j >= array2.getArray().length || array1.getArray()[i] >= array2.getArray()[j]) {
@@ -305,14 +305,14 @@ public class Sorting {
 		} // O(n*logn)
 	}
 
-	public static DoubleVector doMergeSortOneNonSortedArrayDescending(DoubleVector array) throws NullArrayException {
+	public static Conteiner doMergeSortOneNonSortedArrayDescending(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			if (array.getArray().length < 2) {
 				return array;
 			}
 			int mid = array.getArray().length / 2;
-			DoubleVector array1 = new DoubleVector(Arrays.copyOfRange(array.getArray(), 0, mid));
-			DoubleVector array2 = new DoubleVector(Arrays.copyOfRange(array.getArray(), mid, array.getArray().length));
+			Conteiner array1 = new Conteiner(Arrays.copyOfRange(array.getArray(), 0, mid));
+			Conteiner array2 = new Conteiner(Arrays.copyOfRange(array.getArray(), mid, array.getArray().length));
 			return doMergeSortTwoSortedArraysDescending(doMergeSortOneNonSortedArrayDescending(array1),
 					doMergeSortOneNonSortedArrayDescending(array2));
 		} else {
@@ -326,7 +326,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doQuickAscendingSort(DoubleVector array) throws NullArrayException {
+	public static Conteiner doQuickAscendingSort(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			return doQuickSortAscending(array, 0, array.getArray().length - 1);
 		} else {
@@ -334,7 +334,7 @@ public class Sorting {
 		}
 	}
 
-	private static DoubleVector doQuickSortAscending(DoubleVector array, int left, int rightInclusive) {
+	private static Conteiner doQuickSortAscending(Conteiner array, int left, int rightInclusive) {
 		int i = left;
 		int j = rightInclusive;
 		double p = array.getArray()[(left + rightInclusive) / 2];
@@ -370,7 +370,7 @@ public class Sorting {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static DoubleVector doQuickDescendingSort(DoubleVector array) throws NullArrayException {
+	public static Conteiner doQuickDescendingSort(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			return doQuickSortDescending(array, 0, array.getArray().length - 1);
 		} else {
@@ -378,7 +378,7 @@ public class Sorting {
 		}
 	}
 
-	private static DoubleVector doQuickSortDescending(DoubleVector array, int left, int right) {
+	private static Conteiner doQuickSortDescending(Conteiner array, int left, int right) {
 		int i = left;
 		int j = right;
 		double p = array.getArray()[(left + right) / 2];

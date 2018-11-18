@@ -3,20 +3,21 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.controller;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic.Sorting;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.util.CreatorConteiner;
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.view.PrintLog;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.view.LoggerType;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.view.Printable;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.view.PrinterCreator;
 
 public class SortingController {
-	private static PrintLog printLog = PrintLog.getLogger(ExtremeFinderController.class);
-
-	public static void main(String[] args) throws NullArrayException {
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		Printable printLog = PrinterCreator.create(LoggerType.LOGGER);
 		try {
-			DoubleVector array = new DoubleVector();
-			DoubleVector vector = CreatorConteiner.createConteiner("D://array.txt");
+			Conteiner array = new Conteiner();
+			Conteiner vector = CreatorConteiner.createConteiner("D://array.txt");
 			printLog.print(vector);
 
 			array = Sorting.doBubbleSortAscending(vector);
@@ -48,13 +49,13 @@ public class SortingController {
 
 			array = Sorting.doQuickDescendingSort(vector);
 			printLog.print("Quick sort descending: " + array);
-			
+
 		} catch (NullArrayException e) {
-			printLog.erLog("Array is null");
+			printLog.printError("Array is null");
 		} catch (FileNotFoundException e) {
-			printLog.erLog("File is not found");
+			printLog.printError("File is not found");
 		} catch (IOException e) {
-			printLog.erLog("Problems in reading or closing file");
+			printLog.printError("Problems in reading or closing file");
 		}
 	}
 

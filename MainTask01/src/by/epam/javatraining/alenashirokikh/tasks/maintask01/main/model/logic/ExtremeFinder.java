@@ -6,7 +6,7 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.logic;
  * @author Alena Shirokikh
  * @version 2.0 2.11.2018
  */
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class ExtremeFinder {
@@ -16,7 +16,7 @@ public class ExtremeFinder {
 	 * @throws NullArrayException
 	 * 
 	 */
-	public static double findMaxValue(DoubleVector array) throws NullArrayException {
+	public static double findMaxValue(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			double max = array.getArray()[0];
 
@@ -36,7 +36,7 @@ public class ExtremeFinder {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static double findMinValue(DoubleVector array) throws NullArrayException {
+	public static double findMinValue(Conteiner array) throws NullArrayException {
 		if (array != null && array.getArray().length != 0) {
 			double min = array.getArray()[0];
 
@@ -56,7 +56,7 @@ public class ExtremeFinder {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static int findLocalMax(DoubleVector array) throws NullArrayException {
+	public static int findLocalMax(Conteiner array) throws NullArrayException {
 		int result = -1;
 		if (array != null && array.getArray().length != 0) {
 			if (array.getArray()[0] > array.getArray()[1]) {
@@ -83,7 +83,7 @@ public class ExtremeFinder {
 	 * 
 	 * @throws NullArrayException
 	 */
-	public static int findLocalMin(DoubleVector array) throws NullArrayException {
+	public static int findLocalMin(Conteiner array) throws NullArrayException {
 		int result = -1;
 		if (array != null && array.getArray().length != 0) {
 			if (array.getArray()[0] < array.getArray()[1]) {

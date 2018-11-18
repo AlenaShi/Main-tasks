@@ -2,22 +2,22 @@ package by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity;
 
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
-public class DoubleVector {
+public class Conteiner {
 	private double[] array = new double[DEFAULT_SIZE];
 
 	public static final int DEFAULT_SIZE = 10;
 
-	public DoubleVector() {
+	public Conteiner() {
 		this.array = new double[DEFAULT_SIZE];
 	}
 
-	public DoubleVector(int size) {
+	public Conteiner(int size) {
 		if (size > 0) {
 			this.array = new double[size];
 		}
 	}
 
-	public DoubleVector(double[] array) {
+	public Conteiner(double[] array) {
 		if (array != null && array.length != 0) {
 			this.array = array;
 		}

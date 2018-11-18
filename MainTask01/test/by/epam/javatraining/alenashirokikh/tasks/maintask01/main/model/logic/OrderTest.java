@@ -7,15 +7,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class OrderTest {
-	private DoubleVector vector = null;
+	private Conteiner vector = null;
 
 	@Before
 	public void init() {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 	}
 
 	@After
@@ -26,7 +26,7 @@ public class OrderTest {
 	@Test
 	public void testIsOrderedAscending() throws NullArrayException {
 		double[] array = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-		vector = new DoubleVector(array);
+		vector = new Conteiner(array);
 		assertTrue(Order.isOrderedAscending(vector));
 	}
 

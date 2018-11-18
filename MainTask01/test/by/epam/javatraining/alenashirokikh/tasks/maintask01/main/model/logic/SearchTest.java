@@ -6,15 +6,15 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.DoubleVector;
+import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.entity.Conteiner;
 import by.epam.javatraining.alenashirokikh.tasks.maintask01.main.model.exception.NullArrayException;
 
 public class SearchTest {
-	private DoubleVector vector = null;
+	private Conteiner vector = null;
 
 	@Before
 	public void init() {
-		vector = new DoubleVector();
+		vector = new Conteiner();
 	}
 
 	@After

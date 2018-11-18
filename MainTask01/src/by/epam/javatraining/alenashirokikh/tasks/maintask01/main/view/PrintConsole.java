@@ -7,4 +7,10 @@ public class PrintConsole implements Printable {
 		// TODO Auto-generated method stub
 		System.out.println(msg);
 	}
+
+	@Override
+	public void printError(Object msg) {
+		// TODO Auto-generated method stub
+		System.out.println("Exception: " + msg);
+	}
 }
