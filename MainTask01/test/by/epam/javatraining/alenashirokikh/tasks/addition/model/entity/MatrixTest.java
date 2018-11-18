@@ -60,6 +60,20 @@ public class MatrixTest {
 		}
 	}
 
+	@Test(expected = NullMatrixException.class)
+	public void testSetArrayException() throws NullMatrixException {
+		vector = new Matrix();
+		double[][] matrix = null;
+		vector.setMatrix(matrix);
+	}
+
+	@Test(expected = NullMatrixException.class)
+	public void testSetArrayException2() throws NullMatrixException {
+		vector = new Matrix();
+		double[][] matrix = {};
+		vector.setMatrix(matrix);
+	}
+
 	@Test
 	public void testToString() {
 		double[][] matrix = { { 1, 2, 4 }, { 1, 2, 3 } };
