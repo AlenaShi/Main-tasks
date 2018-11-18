@@ -24,13 +24,6 @@ public class MatrixTest {
 	}
 
 	@Test
-	public void testDoubleVectorWithRows() throws NullMatrixException {
-		vector = new Matrix(4);
-		int expected = 4;
-		assertEquals(expected, vector.getMatrix().length);
-	}
-
-	@Test
 	public void testDoubleVectorWithRowsColumns() throws NullMatrixException {
 		vector = new Matrix(4, 5);
 		int expected = 5;
@@ -71,6 +64,13 @@ public class MatrixTest {
 	public void testSetArrayException2() throws NullMatrixException {
 		vector = new Matrix();
 		double[][] matrix = {};
+		vector.setMatrix(matrix);
+	}
+
+	@Test(expected = NullMatrixException.class)
+	public void testSetArrayException3() throws NullMatrixException {
+		vector = new Matrix();
+		double[][] matrix = { {}, {} };
 		vector.setMatrix(matrix);
 	}
 

@@ -7,10 +7,6 @@ public class Creator {
 		return new Matrix();
 	}
 
-	public static Matrix create(int size) {
-		return new Matrix(size);
-	}
-
 	public static Matrix create(int size1, int size2) {
 		return new Matrix(size1, size2);
 	}

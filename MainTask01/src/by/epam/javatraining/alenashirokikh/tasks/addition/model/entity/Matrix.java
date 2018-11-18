@@ -11,12 +11,6 @@ public class Matrix {
 		this.matrix = new double[DEFAULT_SIZE][DEFAULT_SIZE];
 	}
 
-	public Matrix(int rows) {
-		if (rows > 0) {
-			this.matrix = new double[rows][];
-		}
-	}
-
 	public Matrix(int rows, int columns) {
 		if (rows > 0 && columns > 0) {
 			this.matrix = new double[rows][columns];
@@ -24,13 +18,13 @@ public class Matrix {
 	}
 
 	public Matrix(double[][] matrix) {
-		if (matrix != null && matrix.length != 0) {
+		if (matrix != null && matrix.length != 0 && matrix[0].length != 0) {
 			this.matrix = matrix;
 		}
 	}
 
 	public double[][] getMatrix() throws NullMatrixException {
-		if (matrix != null && matrix.length != 0) {
+		if (matrix != null && matrix.length != 0 && matrix[0].length != 0) {
 			return matrix;
 		} else {
 			throw new NullMatrixException();
@@ -38,7 +32,7 @@ public class Matrix {
 	}
 
 	public void setMatrix(double[][] matrix) throws NullMatrixException {
-		if (matrix != null && matrix.length != 0) {
+		if (matrix != null && matrix.length != 0 && matrix[0].length != 0) {
 			this.matrix = matrix;
 		} else {
 			throw new NullMatrixException();
@@ -46,7 +40,7 @@ public class Matrix {
 	}
 
 	public String toString() {
-		if (matrix != null && matrix.length != 0) {
+		if (matrix != null && matrix.length != 0 && matrix[0].length != 0) {
 			StringBuilder builder = new StringBuilder("[");
 			for (int i = 0; i < matrix.length; i++) {
 				for (int j = 0; j < matrix[i].length; j++) {
