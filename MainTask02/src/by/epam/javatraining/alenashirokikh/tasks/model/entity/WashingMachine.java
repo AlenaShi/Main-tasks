@@ -31,4 +31,8 @@ public class WashingMachine extends Equipment {
 			working = false;
 		}
 	}
+
+	public enum WashingTypes {
+		EVERYDAY, SOFT, COTTON, CLEANING, SPINNING, RINSING
+	}
 }

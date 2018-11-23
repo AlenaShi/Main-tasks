@@ -12,7 +12,7 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Refrigerator;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.RoomTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine;
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingTypes;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine.WashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.EquipmentLogicException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;

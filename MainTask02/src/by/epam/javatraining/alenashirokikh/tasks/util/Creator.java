@@ -10,7 +10,7 @@ import java.io.IOException;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Equipment;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWasher;
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWashingTypes;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWasher.DishWashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Refrigerator;
@@ -18,7 +18,7 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.Room;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.RoomTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.VacuumCleaner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine;
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingTypes;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine.WashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchEquipmentException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
@@ -114,7 +114,8 @@ public class Creator {
 							}
 						}
 						((Refrigerator) equipment).setTemperature(Integer.parseInt(temperature));
-					} else if (info[i].contains("setFreezerTemperature") && equipment.getClass() == Refrigerator.class) {
+					} else if (info[i].contains("setFreezerTemperature")
+							&& equipment.getClass() == Refrigerator.class) {
 						String temperature = null;
 						for (int j = 0; j < info[i].length(); j++) {
 							if (Character.isDigit(info[i].charAt(j))) {
@@ -125,7 +126,7 @@ public class Creator {
 
 					} else if (info[i].contains("wash") && equipment.getClass() == WashingMachine.class) {
 						if (info[i].contains("EVERYDAY")) {
-							((WashingMachine) equipment).wash(WashingTypes.EVERYDAY);
+							((WashingMachine) equipment).wash(WashingMachine.WashingTypes.EVERYDAY);
 						}
 
 						else if (info[i].contains("SOFT")) {
@@ -174,7 +175,7 @@ public class Creator {
 	}
 
 	public static ListConteiner<Equipment> createList(Home home)
-			throws  NoSuchEquipmentException, ListConteinerOutOfBoundException, NoSuchRoomException {
+			throws NoSuchEquipmentException, ListConteinerOutOfBoundException, NoSuchRoomException {
 		ListConteiner<Equipment> list = new ListConteiner<Equipment>();
 		for (int i = 0; i < home.size(); i++) {
 			for (int j = 0; j < home.getRoom(i).devicesListSize(); j++) {

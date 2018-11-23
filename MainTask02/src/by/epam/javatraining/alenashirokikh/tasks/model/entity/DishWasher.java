@@ -31,6 +31,8 @@ public class DishWasher extends Equipment {
 			working = false;
 		}
 	}
-
+	public enum DishWashingTypes {
+		ECO, ECONOM, INTENSIVE, GLASS
+	}
 	
 }
