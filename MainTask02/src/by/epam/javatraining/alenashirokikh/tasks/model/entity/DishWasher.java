@@ -1,9 +1,16 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe dishwasher.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 
 public class DishWasher extends Device {
 	DishWashingTypes type;
+
 	public DishWasher() {
 		super();
 		name = "DishWasher";
@@ -28,6 +35,7 @@ public class DishWasher extends Device {
 			working = false;
 		}
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj) {

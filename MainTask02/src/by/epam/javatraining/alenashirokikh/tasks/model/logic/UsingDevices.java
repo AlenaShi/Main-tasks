@@ -1,5 +1,12 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.logic;
 
+/**
+ * The program find power for devices in different conditions, find device in home, 
+ * find what devices are in home, find in which rooms are devices of determined type, sort devices.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;

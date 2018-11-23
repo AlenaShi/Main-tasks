@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.util;
 
+/**
+ * The program read information from file.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;

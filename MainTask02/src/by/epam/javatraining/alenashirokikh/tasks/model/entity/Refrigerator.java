@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe refrigerator.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 public class Refrigerator extends Device {
 	private double volume = 200;
 	private int temperature = 4;
@@ -54,7 +60,7 @@ public class Refrigerator extends Device {
 			return false;
 		}
 		Refrigerator device = (Refrigerator) obj;
-		return name.equals(device.name) && this.getPower() == device.getPower();
+		return this.getPower() == device.getPower();
 	}
 
 	@Override

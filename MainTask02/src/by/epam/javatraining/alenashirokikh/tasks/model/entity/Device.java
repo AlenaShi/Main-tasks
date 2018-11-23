@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe base class for devices.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 public abstract class Device implements Comparable<Device> {
 	private boolean on;
 	private int power;

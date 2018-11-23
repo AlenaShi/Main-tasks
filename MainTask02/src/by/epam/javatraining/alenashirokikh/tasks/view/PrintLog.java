@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
  * The program helps use logging methods.
  * 
  * @author Alena Shirokikh
- * @version 1.0 30.10.2018
+ * @version 1.0 22.11.2018
  */
 public class PrintLog implements Printable {
 

@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe list for using with Objects.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import java.util.Arrays;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;

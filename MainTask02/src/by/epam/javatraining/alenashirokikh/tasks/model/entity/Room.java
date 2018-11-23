@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe surrounding of devices.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
@@ -63,6 +69,10 @@ public class Room {
 		} else {
 			throw new NoSuchDeviceException("Index of device is out of bound");
 		}
+	}
+
+	public ListConteiner<Device> getList() {
+		return devices;
 	}
 
 	@Override

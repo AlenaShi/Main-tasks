@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.util;
 
+/**
+ * The program creates surrounding for devices and fills it with devices from file.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import java.io.IOException;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
@@ -78,7 +84,7 @@ public class Creator {
 			room = new Room(type, info[1]);
 			home.addRoom(room);
 		} else {
-			room=new Room(type);
+			room = new Room(type);
 			home.addRoom(room);
 		}
 		return room;
@@ -113,7 +119,7 @@ public class Creator {
 				room.addDevice(device);
 				break;
 			}
-			
+
 			if (info.length > 2) {
 				for (int i = 2; i < info.length; i++) {
 					if (info[i].contains("switchOn")) {
@@ -187,6 +193,17 @@ public class Creator {
 			}
 		}
 		return false;
+	}
+
+	public static ListConteiner<Device> createList(Home home)
+			throws NullElementException, NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
+		ListConteiner<Device> list = new ListConteiner<Device>();
+		for (int i = 0; i < home.size(); i++) {
+			for (int j = 0; j < home.getRoom(i).devicesListSize(); j++) {
+				list.add(home.getRoom(i).getDevice(j));
+			}
+		}
+		return list;
 	}
 
 }

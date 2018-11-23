@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.view;
 
+/**
+ * The program print information to console.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 public class PrintConsole implements Printable {
 
 	@Override

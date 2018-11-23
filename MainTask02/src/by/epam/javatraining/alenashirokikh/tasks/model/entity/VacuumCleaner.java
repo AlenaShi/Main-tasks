@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe vacuum cleaner.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 public class VacuumCleaner extends Device {
 	public VacuumCleaner() {
 		super();
@@ -20,7 +26,7 @@ public class VacuumCleaner extends Device {
 			return false;
 		}
 		DishWasher device = (DishWasher) obj;
-		return name.equals(device.name) && this.getPower() == device.getPower();
+		return this.getPower() == device.getPower();
 	}
 
 	@Override

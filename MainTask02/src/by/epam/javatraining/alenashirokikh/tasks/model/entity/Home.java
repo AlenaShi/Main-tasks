@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
+/**
+ * The program describe surrounding of rooms.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;

@@ -6,7 +6,7 @@ public class DifferentDigitsView {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int a = UserInput.getNumber();
+		int a = UserInput.readNumber("Input number");
 
 		int result = DifferentDigits.getNumberOfDifferentDigits(a);
 		View.log("The number of digits: " + result);

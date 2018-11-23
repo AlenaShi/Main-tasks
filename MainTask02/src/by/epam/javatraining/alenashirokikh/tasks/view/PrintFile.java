@@ -1,5 +1,11 @@
 package by.epam.javatraining.alenashirokikh.tasks.view;
 
+/**
+ * The program write information in file.
+ * 
+ * @author Alena Shirokikh
+ * @version 1.0 22.11.2018
+ */
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
