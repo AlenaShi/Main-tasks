@@ -20,13 +20,13 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.VacuumCleaner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchEquipmentException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
 
 public class Creator {
 	public static Home create(String fileName) throws IOException, ListConteinerOutOfBoundException,
-			UsingSwitchOffDeviceException, NoSuchRoomException, NoSuchDeviceException {
+			SwitchOffEquipmentException, NoSuchRoomException, NoSuchEquipmentException {
 		Room room = null;
 		ListConteiner<String> str = Parser.parse(fileName);
 		Home home = createHome();
@@ -69,7 +69,7 @@ public class Creator {
 	}
 
 	public static Equipment createDevice(Room room, String infoDevice)
-			throws UsingSwitchOffDeviceException, NoSuchDeviceException {
+			throws SwitchOffEquipmentException, NoSuchEquipmentException {
 		Equipment device = null;
 		int power;
 		if (infoDevice != null) {
@@ -161,7 +161,7 @@ public class Creator {
 			}
 			return device;
 		} else
-			throw new NoSuchDeviceException("No such device in file");
+			throw new NoSuchEquipmentException("No such device in file");
 	}
 
 	static boolean contain(String[] str, String method) {
@@ -174,7 +174,7 @@ public class Creator {
 	}
 
 	public static ListConteiner<Equipment> createList(Home home)
-			throws  NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
+			throws  NoSuchEquipmentException, ListConteinerOutOfBoundException, NoSuchRoomException {
 		ListConteiner<Equipment> list = new ListConteiner<Equipment>();
 		for (int i = 0; i < home.size(); i++) {
 			for (int j = 0; j < home.getRoom(i).devicesListSize(); j++) {

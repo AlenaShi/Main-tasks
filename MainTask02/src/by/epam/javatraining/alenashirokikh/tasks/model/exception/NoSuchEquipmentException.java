@@ -1,6 +1,6 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.exception;
 
-public class NoSuchDeviceException extends DeviceException {
+public class NoSuchEquipmentException extends EquipmentLogicException {
 	
 
 	/**
@@ -8,11 +8,11 @@ public class NoSuchDeviceException extends DeviceException {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public NoSuchDeviceException() {
+	public NoSuchEquipmentException() {
 		super();
 	}
 
-	public NoSuchDeviceException(String message) {
+	public NoSuchEquipmentException(String message) {
 		super(message);
 	}
 }

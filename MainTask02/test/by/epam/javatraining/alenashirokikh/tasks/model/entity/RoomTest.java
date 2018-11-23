@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchEquipmentException;
 
 public class RoomTest {
 	private Room room;
@@ -122,7 +122,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void getDeviceTest() throws ListConteinerException, NoSuchDeviceException {
+	public void getDeviceTest() throws ListConteinerException, NoSuchEquipmentException {
 		room = new Room(RoomTypes.KITCHEN);
 		Equipment ref = new Refrigerator(1200);
 		Equipment wm = new WashingMachine(1200);
@@ -132,8 +132,8 @@ public class RoomTest {
 
 	}
 
-	@Test(expected = NoSuchDeviceException.class)
-	public void getDevice2Test() throws ListConteinerOutOfBoundException, NoSuchDeviceException {
+	@Test(expected = NoSuchEquipmentException.class)
+	public void getDevice2Test() throws ListConteinerOutOfBoundException, NoSuchEquipmentException {
 		room = new Room(RoomTypes.KITCHEN);
 		room.getDevice(2);
 	}

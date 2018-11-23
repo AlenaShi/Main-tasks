@@ -6,7 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
 
 public class DishWasherTest {
 	private DishWasher dw;
@@ -22,7 +22,7 @@ public class DishWasherTest {
 	}
 
 	@Test
-	public void washTest() throws UsingSwitchOffDeviceException {
+	public void washTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
 		dw.switchOn();
@@ -30,15 +30,15 @@ public class DishWasherTest {
 		assertTrue(dw.isWorking());
 	}
 
-	@Test(expected=UsingSwitchOffDeviceException.class)
-	public void washSwitchOffTest() throws UsingSwitchOffDeviceException {
+	@Test(expected=SwitchOffEquipmentException.class)
+	public void washSwitchOffTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
 		dw.wash(DishWashingTypes.GLASS);
 	}
 
 	@Test
-	public void stopWashTest() throws UsingSwitchOffDeviceException {
+	public void stopWashTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
 		dw.switchOn();

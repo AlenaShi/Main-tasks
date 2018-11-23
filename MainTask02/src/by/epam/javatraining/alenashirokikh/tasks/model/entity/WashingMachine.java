@@ -6,7 +6,7 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  * @author Alena Shirokikh
  * @version 1.0 22.11.2018
  */
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
 
 public class WashingMachine extends Equipment {
 	private WashingTypes type;
@@ -17,12 +17,12 @@ public class WashingMachine extends Equipment {
 	public WashingMachine(int power) {
 	}
 
-	public void wash(WashingTypes type) throws UsingSwitchOffDeviceException {
+	public void wash(WashingTypes type) throws SwitchOffEquipmentException {
 		if (this.isSwitchOn()) {
 			this.type = type;
 			working = true;
 		} else {
-			throw new UsingSwitchOffDeviceException("You should switch on your washing machine");
+			throw new SwitchOffEquipmentException("You should switch on your washing machine");
 		}
 	}
 

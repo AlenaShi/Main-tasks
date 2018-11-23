@@ -1,6 +1,6 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.exception;
 
-public class NoSuchRoomException extends Exception {
+public class NoSuchRoomException extends EquipmentLogicException {
 	/**
 	 * 
 	 */

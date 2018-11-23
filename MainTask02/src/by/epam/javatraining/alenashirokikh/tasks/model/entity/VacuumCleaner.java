@@ -1,6 +1,6 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
 
 /**
  * The program describe vacuum cleaner.
@@ -15,11 +15,11 @@ public class VacuumCleaner extends Equipment {
 	public VacuumCleaner(int power) {
 	}
 
-	public void clean() throws UsingSwitchOffDeviceException {
+	public void clean() throws SwitchOffEquipmentException {
 		if (isSwitchOn()) {
 			working = true;
 		} else {
-			throw new UsingSwitchOffDeviceException("You should switch on your vacum cleaner");
+			throw new SwitchOffEquipmentException("You should switch on your vacum cleaner");
 		}
 	}
 

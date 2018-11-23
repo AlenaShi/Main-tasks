@@ -7,7 +7,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
 
 public class VacuumCleanerTest {
 	private VacuumCleaner vc;
@@ -23,7 +23,7 @@ public class VacuumCleanerTest {
 	}
 
 	@Test
-	public void cleanTest() throws UsingSwitchOffDeviceException {
+	public void cleanTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
 		vc.switchOn();
@@ -31,15 +31,15 @@ public class VacuumCleanerTest {
 		assertTrue(vc.isWorking());
 	}
 
-	@Test(expected = UsingSwitchOffDeviceException.class)
-	public void clean0Test() throws UsingSwitchOffDeviceException {
+	@Test(expected = SwitchOffEquipmentException.class)
+	public void clean0Test() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
 		vc.clean();
 	}
 
 	@Test
-	public void stopCleanTest() throws UsingSwitchOffDeviceException {
+	public void stopCleanTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
 		vc.switchOn();

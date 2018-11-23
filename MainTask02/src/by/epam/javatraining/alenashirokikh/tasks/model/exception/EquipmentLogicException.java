@@ -1,16 +1,16 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.exception;
 
-public class DeviceException extends Exception {
+public class EquipmentLogicException extends EquipmentException {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DeviceException() {
+	public EquipmentLogicException() {
 		super();
 	}
 
-	public DeviceException(String message) {
+	public EquipmentLogicException(String message) {
 		super(message);
 	}
 }

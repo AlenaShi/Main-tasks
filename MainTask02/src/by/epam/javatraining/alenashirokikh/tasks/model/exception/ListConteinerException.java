@@ -1,6 +1,6 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.exception;
 
-public class ListConteinerException extends Exception{
+public class ListConteinerException extends EquipmentException{
 	/**
 	 * 
 	 */

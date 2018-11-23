@@ -7,7 +7,7 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  * @version 1.0 22.11.2018
  */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
+import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchEquipmentException;
 
 public class Room {
 	RoomTypes type;
@@ -60,11 +60,11 @@ public class Room {
 		return devices.size();
 	}
 
-	public Equipment getDevice(int index) throws NoSuchDeviceException, ListConteinerOutOfBoundException {
+	public Equipment getDevice(int index) throws NoSuchEquipmentException, ListConteinerOutOfBoundException {
 		if (index >= 0 && index < devices.size()) {
 			return devices.get(index);
 		} else {
-			throw new NoSuchDeviceException("Index of device is out of bound");
+			throw new NoSuchEquipmentException("Index of device is out of bound");
 		}
 	}
 
