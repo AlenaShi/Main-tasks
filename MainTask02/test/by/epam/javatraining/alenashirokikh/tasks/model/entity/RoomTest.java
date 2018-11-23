@@ -1,6 +1,8 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
@@ -9,13 +11,12 @@ import org.junit.Test;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class RoomTest {
 	private Room room;
 
 	@Before
-	public void init() throws NullElementException {
+	public void init() {
 		room = new Room();
 	}
 
@@ -60,29 +61,22 @@ public class RoomTest {
 	}
 
 	@Test
-	public void addDeviceTest() throws NullElementException {
+	public void addDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
 		Device ref = new Refrigerator(1200);
 		room.addDevice(ref);
 		assertEquals(1, room.devicesListSize());
 	}
 
-	@Test(expected = NullElementException.class)
-	public void addNullDeviceTest() throws NullElementException {
-		room = new Room(RoomTypes.KITCHEN);
-		Refrigerator ref = null;
-		room.addDevice(ref);
-	}
-
 	@Test(expected = NullPointerException.class)
-	public void addToNullTest() throws NullElementException {
+	public void addToNullTest() {
 		room = null;
 		Refrigerator ref = new Refrigerator(1200);
 		room.addDevice(ref);
 	}
 
 	@Test
-	public void addDeviceToOtherRoomTest() throws NullElementException {
+	public void addDeviceToOtherRoomTest() {
 		room = new Room(RoomTypes.KITCHEN);
 		Device ref = new Refrigerator(1200);
 		room.addDevice(ref);
@@ -92,7 +86,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void deleteDeviceTest() throws NullElementException {
+	public void deleteDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
 		Device ref = new Refrigerator(1200);
 		room.addDevice(ref);
@@ -101,7 +95,7 @@ public class RoomTest {
 	}
 
 	@Test
-	public void deleteOtherDeviceTest() throws NullElementException {
+	public void deleteOtherDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
 		Device ref = new Refrigerator(1200);
 		room.addDevice(ref);
@@ -110,7 +104,7 @@ public class RoomTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void deleteFromNullTest() throws NullElementException {
+	public void deleteFromNullTest() {
 		room = null;
 		room.deleteDevice(new Refrigerator(1000));
 	}
@@ -122,7 +116,7 @@ public class RoomTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void devicesListSizeFromNullTest() throws NullElementException {
+	public void devicesListSizeFromNullTest() {
 		room = null;
 		room.devicesListSize();
 	}
@@ -187,7 +181,7 @@ public class RoomTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void equalsFromNullTest() throws NullElementException {
+	public void equalsFromNullTest() {
 		room = null;
 		Room room2 = new Room(RoomTypes.KITCHEN, "kitchen");
 		room.equals(room2);

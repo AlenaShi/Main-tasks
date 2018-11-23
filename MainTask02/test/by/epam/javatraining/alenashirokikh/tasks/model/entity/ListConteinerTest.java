@@ -1,13 +1,15 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class ListConteinerTest {
 	private ListConteiner<String> str;
@@ -28,14 +30,14 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void addTest() throws NullElementException {
+	public void addTest() {
 		str.add("One");
 		String expected = "One";
 		assertEquals(expected, str.toString());
 	}
 
 	@Test
-	public void add11Test() throws NullElementException {
+	public void add11Test() {
 		for (int i = 0; i < 11; i++) {
 			str.add("One");
 		}
@@ -45,11 +47,11 @@ public class ListConteinerTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void addToNullTest(){
+	public void addToNullTest() {
 		str = null;
 		str.add("one");
 	}
-	
+
 	@Test
 	public void size0Test() {
 		int expected = 0;
@@ -101,7 +103,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeLastTest(){
+	public void removeLastTest() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -118,7 +120,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void sizeAfterRemove0Test(){
+	public void sizeAfterRemove0Test() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -140,7 +142,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void sizeAfterRemoveLastTest(){
+	public void sizeAfterRemoveLastTest() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -188,7 +190,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElNullText(){
+	public void removeElNullText() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -196,9 +198,9 @@ public class ListConteinerTest {
 		String expected = "Three One Two";
 		assertEquals(expected, str.toString());
 	}
-	
+
 	@Test
-	public void removeElTrueText(){
+	public void removeElTrueText() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -207,7 +209,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElFalseText(){
+	public void removeElFalseText() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");

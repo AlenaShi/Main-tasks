@@ -9,13 +9,12 @@ import org.junit.Test;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class HomeTest {
 	private Home home;
 
 	@Before
-	public void init() throws NullElementException {
+	public void init() {
 		home = new Home();
 	}
 
@@ -31,34 +30,34 @@ public class HomeTest {
 	}
 
 	@Test
-	public void addRoomTest() throws NullElementException {
+	public void addRoomTest() {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		String expected = "hall, livingroom";
 		assertEquals(expected, home.toString());
 	}
 
 	@Test
-	public void addRoomWithNameTest() throws NullElementException {
+	public void addRoomWithNameTest() {
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		String expected = "hall, bedroom 1";
 		assertEquals(expected, home.toString());
 	}
 
 	@Test
-	public void addRoomWithNameNullTest() throws NullElementException {
+	public void addRoomWithNameNullTest() {
 		home.addRoom(RoomTypes.BEDROOM, null);
 		String expected = "hall, bedroom";
 		assertEquals(expected, home.toString());
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void addRoomNullHomeTest() throws NoSuchRoomException, NullElementException {
+	public void addRoomNullHomeTest() throws NoSuchRoomException {
 		home = null;
 		home.addRoom(RoomTypes.HALL);
 	}
 
 	@Test
-	public void deleteRoom0Test() throws NoSuchRoomException, NullElementException {
+	public void deleteRoom0Test() throws NoSuchRoomException {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		String expected = "livingroom, bedroom 1";
@@ -67,7 +66,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void deleteRoom2Test() throws NoSuchRoomException, NullElementException {
+	public void deleteRoom2Test() throws NoSuchRoomException {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		String expected = "hall, livingroom";
@@ -92,7 +91,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void sizeTest() throws NullElementException {
+	public void sizeTest() {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		int expected = 3;
@@ -106,7 +105,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void getRoomIndexTest() throws NoSuchRoomException, ListConteinerException{
+	public void getRoomIndexTest() throws NoSuchRoomException, ListConteinerException {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		String expected = "hall";
@@ -148,7 +147,7 @@ public class HomeTest {
 	}
 
 	@Test
-	public void toStringTest() throws NoSuchRoomException, NullElementException {
+	public void toStringTest() throws NoSuchRoomException {
 		home.addRoom(RoomTypes.LIVINGROOM);
 		home.addRoom(RoomTypes.BEDROOM, "bedroom 1");
 		String expected = "hall, livingroom, bedroom 1";

@@ -14,12 +14,10 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.RoomTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingMachine;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.DeviceException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.HomeNullException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 
 public class UsingDevicesTest {
@@ -29,7 +27,7 @@ public class UsingDevicesTest {
 	private static Device dw;
 
 	@BeforeClass
-	public static void init() throws NullElementException, ListConteinerOutOfBoundException, NoSuchRoomException,
+	public static void init() throws ListConteinerOutOfBoundException, NoSuchRoomException,
 			UsingSwitchOffDeviceException {
 		home = new Home();
 		home.addRoom(RoomTypes.KITCHEN);
@@ -47,25 +45,25 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findAllPowerTest()
-			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException{
 		assertEquals(3300, UsingDevices.findAllPower(home));
 	}
 
 	@Test
 	public void findPowerSwitchedOnTest()
-			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
 		assertEquals(2200, UsingDevices.findPowerSwitchedOn(home));
 	}
 
 	@Test
 	public void findPowerWorkingTest()
-			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
 		assertEquals(2200, UsingDevices.findPowerWorking(home));
 	}
 
 	@Test
 	public void findWithPowerTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException {
 		String expected = "Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findWithPower(1200, home).toString());
@@ -73,7 +71,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findWithTypeTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException{
 		String expected = "Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findWithType(WashingMachine.class, home).toString());
@@ -81,7 +79,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findWorkingTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException{
 		String expected = "Refrigerator has 1000Vt power Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findWorking(home).toString());
@@ -89,7 +87,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findAllDevicesTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException {
 		String expected = "Refrigerator has 1000Vt power DishWasher has 1100Vt power Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findAllDevices(home).toString());
@@ -97,7 +95,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findSwitchedOnTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException {
 		String expected = "Refrigerator has 1000Vt power " + "Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findSwitchedOn(home).toString());
@@ -105,7 +103,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findRoomsWithDevicesTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException {
 		String expected = "kitchen";
 
 		assertEquals(expected, UsingDevices.findRoomsWithDevices(Refrigerator.class, home).toString());
@@ -113,14 +111,14 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findDeviceTest()
-			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException, HomeNullException {
+			throws NoSuchDeviceException, ListConteinerException, NoSuchRoomException{
 		String expected = "kitchen";
 
 		assertEquals(expected, UsingDevices.findDevice(ref, home).toString());
 	}
 
 	@Test
-	public void sortTest() throws ListConteinerException, NoSuchRoomException, HomeNullException, DeviceException {
+	public void sortTest() throws ListConteinerException, NoSuchRoomException, DeviceException {
 		String expected = "DishWasher has 1100Vt power Refrigerator has 1000Vt power Washing machine has 1200Vt power";
 		ListConteiner<Device> list = new ListConteiner<Device>();
 		list.add(wm);
@@ -132,7 +130,7 @@ public class UsingDevicesTest {
 
 	@Test
 	public void findMaxPowerTest()
-			throws NoSuchDeviceException, NoSuchRoomException, HomeNullException, ListConteinerException {
+			throws NoSuchDeviceException, NoSuchRoomException,ListConteinerException {
 		String expected = "Washing machine has 1200Vt power";
 
 		assertEquals(expected, UsingDevices.findMaxPower(home).toString());
