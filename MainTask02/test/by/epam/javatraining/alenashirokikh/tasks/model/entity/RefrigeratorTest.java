@@ -1,18 +1,18 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
-
 public class RefrigeratorTest {
 	private Refrigerator ref;
 
 	@Before
-	public void init() throws NullElementException {
+	public void init() {
 		ref = new Refrigerator(1200);
 	}
 
@@ -22,13 +22,19 @@ public class RefrigeratorTest {
 	}
 
 	@Test
-	public void getNameTest() {
-		assertEquals("Refrigerator", ref.getName());
+	public void getVolume0Test() {
+		assertEquals(0, ref.getVolume(), 0.001);
+	}
+
+	@Test
+	public void getVolumeTest() {
+		ref = new Refrigerator(1000, 100, 5, -14);
+		assertEquals(100, ref.getVolume(), 0.001);
 	}
 
 	@Test
 	public void getTemperatureTest() {
-		assertEquals(4, ref.getTemperature());
+		assertEquals(0, ref.getTemperature());
 	}
 
 	@Test
@@ -38,114 +44,14 @@ public class RefrigeratorTest {
 	}
 
 	@Test
-	public void switchOnWithoutRoomTest() {
-		ref.switchOn();
-		assertFalse(ref.isSwitchOn());
+	public void getFreezerTemperature() {
+		assertEquals(0, ref.getFreezerTemperature());
 	}
 
 	@Test
-	public void switchOnTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		room.addDevice(ref);
-		ref.switchOn();
-		assertTrue(ref.isSwitchOn());
-	}
-
-	@Test
-	public void switchOffTest() {
-		ref.switchOff();
-		assertFalse(ref.isSwitchOn());
-	}
-
-	@Test
-	public void getPowerTest() {
-		int expected = 1200;
-		assertEquals(expected, ref.getPower());
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void switchOffExceptionTest() {
-		ref = null;
-		ref.switchOff();
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void switchOnExceptionTest() {
-		ref = null;
-		ref.switchOn();
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void getPowerExceptionTest() {
-		ref = null;
-		ref.getPower();
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void getNameExceptionTest() {
-		ref = null;
-		ref.getName();
-	}
-
-	@Test
-	public void hasRoomTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		room.addDevice(ref);
-		assertTrue(ref.hasRoom());
-	}
-
-	@Test
-	public void hasNoRoomTest() throws NullElementException {
-		assertFalse(ref.hasRoom());
-	}
-
-	@Test
-	public void setRoomTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		ref.setRoom(room);
-		assertTrue(ref.hasRoom());
-	}
-
-	@Test
-	public void setAnotherRoomTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		room.addDevice(ref);
-		Room room2 = new Room(RoomTypes.KITCHEN);
-		ref.setRoom(room2);
-		assertEquals(room2, ref.getRoom());
-	}
-
-	@Test
-	public void setRoomNullTest() throws NullElementException {
-		ref.setRoom(null);
-		assertFalse(ref.hasRoom());
-	}
-
-	@Test
-	public void setAnotherNullRoomTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		room.addDevice(ref);
-		ref.setRoom(null);
-		assertEquals(room, ref.getRoom());
-	}
-
-	@Test
-	public void getRoomTest() throws NullElementException {
-		Room room = new Room(RoomTypes.KITCHEN);
-		room.addDevice(ref);
-		assertEquals(room, ref.getRoom());
-	}
-
-	@Test(expected = NullPointerException.class)
-	public void getRoomFromNullTest() throws NullElementException {
-		ref = null;
-		ref.getRoom();
-	}
-
-	@Test
-	public void equalsRefTest() {
-		Device ref2 = new Refrigerator(1200);
-		assertTrue(ref.equals(ref2));
+	public void setFreezerTemperature() {
+		ref.setFreezerTemperature(-20);
+		assertEquals(-20, ref.getFreezerTemperature());
 	}
 
 	@Test
@@ -167,7 +73,7 @@ public class RefrigeratorTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void equalsFromNullTest() throws NullElementException {
+	public void equalsFromNullTest() {
 		ref = null;
 		Device ref2 = new Refrigerator(1000);
 		ref.equals(ref2);
@@ -184,11 +90,4 @@ public class RefrigeratorTest {
 		ref = null;
 		ref.hashCode();
 	}
-
-	@Test
-	public void hashCode2Test() {
-		Device ref2 = new Refrigerator(1000);
-		assertFalse(ref.hashCode() == ref2.hashCode());
-	}
-
 }
