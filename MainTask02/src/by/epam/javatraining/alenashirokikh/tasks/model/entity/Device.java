@@ -6,26 +6,19 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  * @author Alena Shirokikh
  * @version 1.0 22.11.2018
  */
-public abstract class Device implements Comparable<Device> {
+public class Device implements Comparable<Device> {
 	private boolean on;
 	private int power;
 	private Room room;
-	protected String name;
-	protected boolean working = false;
+	protected boolean working;
 
 	public Device() {
 		on = false;
-		power = 1000;
 	}
 
 	public Device(int power) {
 		on = false;
-		if (power > 0) {
-			this.power = power;
-		} else {
-			this.power = Math.abs(power);
-		}
-		name = "Device";
+		this.power = Math.abs(power);
 	}
 
 	public boolean isWorking() {
@@ -37,9 +30,7 @@ public abstract class Device implements Comparable<Device> {
 	}
 
 	void setRoom(Room room) {
-		if (room != null) {
-			this.room = room;
-		}
+		this.room = room;
 	}
 
 	boolean hasRoom() {
@@ -65,18 +56,33 @@ public abstract class Device implements Comparable<Device> {
 	}
 
 	public String getName() {
-		return this.name;
+		return this.getClass().toString();
 	}
 
 	@Override
-	public abstract boolean equals(Object obj);
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null || obj.getClass() != this.getClass()) {
+			return false;
+		}
+		Device device = (Device) obj;
+		return this.getName() == device.getName() && this.getPower() == device.getPower();
+	}
 
 	@Override
-	public abstract int hashCode();
+	public int hashCode() {
+		final int prime = 34;
+		int result = 1;
+		result = prime * result + (this.getName() == null ? 0 : this.getName().hashCode());
+		result = prime * result + (this.getPower() <= 0 ? 0 : this.getPower() * prime);
+		return result;
+	}
 
 	public int compareTo(Device device) {
-		if (this.name.compareTo(device.name) != 0) {
-			return this.name.compareTo(device.name);
+		if (this.getName().compareTo(device.getName()) != 0) {
+			return this.getName().compareTo(device.getName());
 		} else {
 			return this.power - device.power;
 		}

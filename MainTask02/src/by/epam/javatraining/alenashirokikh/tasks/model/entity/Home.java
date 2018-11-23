@@ -8,16 +8,15 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class Home {
 	private ListConteiner<Room> rooms = new ListConteiner<Room>();;
 
-	public Home() throws NullElementException {
+	public Home() {
 		rooms.add(new Room(RoomTypes.HALL));
 	}
 
-	public Home(Home otherHome) throws NullElementException {
+	public Home(Home otherHome) {
 		if (otherHome != null && otherHome.size() != 0) {
 			this.rooms = otherHome.rooms;
 		} else {
@@ -25,19 +24,17 @@ public class Home {
 		}
 	}
 
-	public void addRoom(RoomTypes type) throws NullElementException {
+	public void addRoom(RoomTypes type) {
 		rooms.add(new Room(type));
 	}
 
-	public void addRoom(RoomTypes type, String roomName) throws NullElementException {
+	public void addRoom(RoomTypes type, String roomName){
 		rooms.add(new Room(type, roomName));
 	}
 
-	public void addRoom(Room room) throws NullElementException, NoSuchRoomException {
+	public void addRoom(Room room) {
 		if (room != null) {
 			rooms.add(room);
-		} else {
-			throw new NoSuchRoomException("No such room to add");
 		}
 	}
 

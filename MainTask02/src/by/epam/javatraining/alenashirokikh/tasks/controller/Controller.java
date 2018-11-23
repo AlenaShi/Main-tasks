@@ -8,13 +8,8 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Refrigerator;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Room;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.DeviceException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.HomeNullException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.logic.UsingDevices;
 import by.epam.javatraining.alenashirokikh.tasks.util.Creator;
 import by.epam.javatraining.alenashirokikh.tasks.view.LoggerType;
@@ -52,19 +47,16 @@ public class Controller {
 
 		} catch (ListConteinerException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			printLog.printError("Problems with listConteiner");
 		} catch (DeviceException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			printLog.printError("Problems with device");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			printLog.printError("Problems with file");
 		} catch (NoSuchRoomException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (HomeNullException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+			printLog.printError("Problems with room");
+		} 
 	}
 }

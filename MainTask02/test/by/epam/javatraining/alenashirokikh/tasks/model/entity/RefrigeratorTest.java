@@ -9,7 +9,7 @@ import org.junit.Test;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class RefrigeratorTest {
-	private Device ref;
+	private Refrigerator ref;
 
 	@Before
 	public void init() throws NullElementException {
@@ -24,6 +24,17 @@ public class RefrigeratorTest {
 	@Test
 	public void getNameTest() {
 		assertEquals("Refrigerator", ref.getName());
+	}
+
+	@Test
+	public void getTemperatureTest() {
+		assertEquals(4, ref.getTemperature());
+	}
+
+	@Test
+	public void setTemperature() {
+		ref.setTemperature(8);
+		assertEquals(8, ref.getTemperature());
 	}
 
 	@Test

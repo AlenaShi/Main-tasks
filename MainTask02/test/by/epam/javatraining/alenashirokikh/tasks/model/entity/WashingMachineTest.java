@@ -11,7 +11,7 @@ import org.junit.Test;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class WashingMachineTest {
-	private Device wm;
+	private WashingMachine wm;
 
 	@Before
 	public void init() throws NullElementException {

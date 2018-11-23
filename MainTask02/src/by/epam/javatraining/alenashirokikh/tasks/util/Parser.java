@@ -12,11 +12,10 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class Parser {
 	public static ListConteiner<String> parse(String fileName)
-			throws FileNotFoundException, IOException, NullElementException {
+			throws FileNotFoundException, IOException {
 		ListConteiner<String> str = new ListConteiner<>();
 		try (FileReader reader = new FileReader(fileName); BufferedReader bf = new BufferedReader(reader)) {
 			String s;

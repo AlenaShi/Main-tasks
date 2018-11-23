@@ -22,13 +22,11 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.WashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 
 public class Creator {
 	public static Home create(String fileName) throws IOException, ListConteinerOutOfBoundException,
-			NullElementException, UsingSwitchOffDeviceException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<String> result = new ListConteiner<String>();
+			UsingSwitchOffDeviceException, NoSuchRoomException, NoSuchDeviceException {
 		Room room = null;
 		ListConteiner<String> str = Parser.parse(fileName);
 		Home home = createHome();
@@ -45,40 +43,20 @@ public class Creator {
 		return home;
 	}
 
-	public static Home createHome() throws NullElementException {
+	public static Home createHome() {
 		return new Home();
 	}
 
-	public static Room createRoom(Home home, String str) throws NullElementException, NoSuchRoomException {
+	public static Room createRoom(Home home, String str) throws NoSuchRoomException {
 		String[] info = str.split(" ");
-		RoomTypes type;
-		Room room = null;
-
-		switch (info[0].toUpperCase()) {
-		case "BEDROOM":
-			type = RoomTypes.BEDROOM;
-			break;
-		case "LIVINGROOM":
-			type = RoomTypes.LIVINGROOM;
-			break;
-		case "KITCHEN":
-			type = RoomTypes.KITCHEN;
-			break;
-		case "WASHROOM":
-			type = RoomTypes.WASHROOM;
-			break;
-		case "WC":
-			type = RoomTypes.WC;
-			break;
-		case "STOREROOM":
-			type = RoomTypes.STOREROOM;
-			break;
-		case "PARLOR":
-			type = RoomTypes.PARLOR;
-			break;
-		default:
-			type = RoomTypes.HALL;
-			break;
+		RoomTypes type = null;
+		Room room;
+		String s = null;
+		for (RoomTypes el : RoomTypes.values()) {
+			s += el.name();
+		}
+		if (s.contains(info[0].toUpperCase())) {
+			type = RoomTypes.valueOf(info[0].toUpperCase());
 		}
 		if (info.length > 1) {
 			room = new Room(type, info[1]);
@@ -91,7 +69,7 @@ public class Creator {
 	}
 
 	public static Device createDevice(Room room, String infoDevice)
-			throws UsingSwitchOffDeviceException, NullElementException, NoSuchDeviceException {
+			throws UsingSwitchOffDeviceException, NoSuchDeviceException {
 		Device device = null;
 		int power;
 		if (infoDevice != null) {
@@ -196,7 +174,7 @@ public class Creator {
 	}
 
 	public static ListConteiner<Device> createList(Home home)
-			throws NullElementException, NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
+			throws  NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
 		ListConteiner<Device> list = new ListConteiner<Device>();
 		for (int i = 0; i < home.size(); i++) {
 			for (int j = 0; j < home.getRoom(i).devicesListSize(); j++) {

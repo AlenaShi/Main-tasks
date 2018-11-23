@@ -10,7 +10,6 @@ import java.util.Arrays;
 
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class ListConteiner<T> {
 	private static final int INITIAL_SIZE = 10;
@@ -26,7 +25,7 @@ public class ListConteiner<T> {
 
 	}
 
-	public void add(T el) throws NullElementException {
+	public void add(T el) {
 		if (el != null) {
 			if (count < array.length) {
 				array[count++] = el;
@@ -34,12 +33,10 @@ public class ListConteiner<T> {
 				enlargeArray();
 				array[count++] = el;
 			}
-		} else {
-			throw new NullElementException("Element should be not null");
 		}
 	}
 
-	public void add(int index, T el) throws NullElementException {
+	public void add(int index, T el) {
 		if (index <= count && index >= 0) {
 			if (count + 1 > array.length) {
 				enlargeArray();
@@ -99,10 +96,12 @@ public class ListConteiner<T> {
 	}
 
 	public void set(int index, T el) throws ListConteinerException {
-		if (index < count && index >= 0 && el != null) {
-			array[index] = el;
-		} else {
-			throw new ListConteinerException("There is ni such index or element is null");
+		if (el != null) {
+			if (index < count && index >= 0 && el != null) {
+				array[index] = el;
+			} else {
+				throw new ListConteinerException("There is no such index or element is null");
+			}
 		}
 	}
 

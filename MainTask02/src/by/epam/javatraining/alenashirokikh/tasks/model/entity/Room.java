@@ -8,7 +8,6 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class Room {
 	RoomTypes type;
@@ -38,7 +37,7 @@ public class Room {
 		return roomName;
 	}
 
-	public void addDevice(Device device) throws NullElementException {
+	public void addDevice(Device device) {
 		if (device != null) {
 			if (!device.hasRoom()) {
 				device.setRoom(this);
@@ -48,8 +47,6 @@ public class Room {
 				device.setRoom(this);
 				devices.add(device);
 			}
-		} else {
-			throw new NullElementException("Device should be not null");
 		}
 	}
 

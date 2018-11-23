@@ -45,16 +45,11 @@ public class ListConteinerTest {
 	}
 
 	@Test(expected = NullPointerException.class)
-	public void addToNullTest() throws NullElementException {
+	public void addToNullTest(){
 		str = null;
 		str.add("one");
 	}
-
-	@Test(expected=NullElementException.class)
-	public void addNullElTest() throws NullElementException {
-		str.add(null);
-	}
-
+	
 	@Test
 	public void size0Test() {
 		int expected = 0;
@@ -62,14 +57,14 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void size1Test() throws NullElementException {
+	public void size1Test() {
 		str.add("One");
 		int expected = 1;
 		assertEquals(expected, str.size());
 	}
 
 	@Test
-	public void size11Test() throws NullElementException {
+	public void size11Test() {
 		for (int i = 0; i < 11; i++) {
 			str.add("One");
 		}
@@ -84,7 +79,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void remove0Test() throws NullElementException {
+	public void remove0Test() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -95,7 +90,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void remove1Test() throws NullElementException {
+	public void remove1Test() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -106,7 +101,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeLastTest() throws NullElementException {
+	public void removeLastTest(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -123,7 +118,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void sizeAfterRemove0Test() throws NullElementException {
+	public void sizeAfterRemove0Test(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -134,7 +129,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void sizeAfterRemove1Test() throws NullElementException {
+	public void sizeAfterRemove1Test() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -145,7 +140,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void sizeAfterRemoveLastTest() throws NullElementException {
+	public void sizeAfterRemoveLastTest(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -162,7 +157,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void RemoveOutOfBoundTest() throws NullElementException {
+	public void RemoveOutOfBoundTest() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -173,7 +168,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElText() throws NullElementException {
+	public void removeElText() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -183,7 +178,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElOutOfBoundText() throws NullElementException {
+	public void removeElOutOfBoundText() {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -193,7 +188,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElNullText() throws NullElementException {
+	public void removeElNullText(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -203,7 +198,7 @@ public class ListConteinerTest {
 	}
 	
 	@Test
-	public void removeElTrueText() throws NullElementException {
+	public void removeElTrueText(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -212,7 +207,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void removeElFalseText() throws NullElementException {
+	public void removeElFalseText(){
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -227,7 +222,7 @@ public class ListConteinerTest {
 	}
 
 	@Test
-	public void getTest() throws ListConteinerOutOfBoundException, NullElementException {
+	public void getTest() throws ListConteinerOutOfBoundException {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");
@@ -242,7 +237,7 @@ public class ListConteinerTest {
 	}
 
 	@Test(expected = ListConteinerOutOfBoundException.class)
-	public void getOutOfBoundTest() throws ListConteinerOutOfBoundException, NullElementException {
+	public void getOutOfBoundTest() throws ListConteinerOutOfBoundException {
 		str.add("Three");
 		str.add("One");
 		str.add("Two");

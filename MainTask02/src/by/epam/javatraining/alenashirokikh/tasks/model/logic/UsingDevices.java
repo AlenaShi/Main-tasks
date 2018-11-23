@@ -11,17 +11,14 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Room;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.DeviceNullException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.HomeNullException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerOutOfBoundException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NullElementException;
 
 public class UsingDevices {
 	public static int findAllPower(Home home)
-			throws NoSuchRoomException, NoSuchDeviceException, HomeNullException, ListConteinerOutOfBoundException {
+			throws NoSuchRoomException, NoSuchDeviceException, ListConteinerOutOfBoundException {
 		int sum = 0;
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -31,13 +28,13 @@ public class UsingDevices {
 				}
 
 			}
-			return sum;
 		}
-		throw new HomeNullException("Home is null");
+		return sum;
+
 	}
 
 	public static int findPowerSwitchedOn(Home home)
-			throws NoSuchRoomException, NoSuchDeviceException, HomeNullException, ListConteinerOutOfBoundException {
+			throws NoSuchRoomException, NoSuchDeviceException, ListConteinerOutOfBoundException {
 		int sum = 0;
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -49,13 +46,12 @@ public class UsingDevices {
 				}
 
 			}
-			return sum;
 		}
-		throw new HomeNullException("Home is null");
+		return sum;
 	}
 
 	public static int findPowerWorking(Home home)
-			throws NoSuchRoomException, NoSuchDeviceException, HomeNullException, ListConteinerOutOfBoundException {
+			throws NoSuchRoomException, NoSuchDeviceException, ListConteinerOutOfBoundException {
 		int sum = 0;
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -67,13 +63,12 @@ public class UsingDevices {
 				}
 
 			}
-			return sum;
 		}
-		throw new HomeNullException("Home is null");
+		return sum;
 	}
 
 	public static ListConteiner<Device> findWithPower(int power, Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Device> result = new ListConteiner<Device>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -84,13 +79,13 @@ public class UsingDevices {
 					}
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
+
 	}
 
 	public static ListConteiner<Device> findWithType(Class<? extends Device> clazz, Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Device> result = new ListConteiner<Device>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -101,13 +96,12 @@ public class UsingDevices {
 					}
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
 	}
 
 	public static ListConteiner<Device> findWorking(Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Device> result = new ListConteiner<Device>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -118,13 +112,12 @@ public class UsingDevices {
 					}
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
 	}
 
 	public static ListConteiner<Device> findAllDevices(Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Device> result = new ListConteiner<Device>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -133,13 +126,12 @@ public class UsingDevices {
 					result.add(home.getRoom(i).getDevice(j));
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
 	}
 
 	public static ListConteiner<Device> findSwitchedOn(Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Device> result = new ListConteiner<Device>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -150,13 +142,13 @@ public class UsingDevices {
 					}
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
+
 	}
 
 	public static ListConteiner<Room> findRoomsWithDevices(Class<? extends Device> clazz, Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Room> result = new ListConteiner<Room>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
@@ -167,13 +159,12 @@ public class UsingDevices {
 					}
 				}
 			}
-			return result;
 		}
-		throw new HomeNullException("Home is null");
+		return result;
 	}
 
 	public static Room findDevice(Device device, Home home)
-			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException, HomeNullException {
+			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		if (home != null && home.size() != 0) {
 			if (device != null) {
 				for (int i = 0; i < home.size(); i++) {
@@ -187,17 +178,16 @@ public class UsingDevices {
 			}
 			throw new NoSuchDeviceException("There is no such device.");
 		}
-		throw new HomeNullException("Home is null");
+		return null;
 	}
 
 	public static ListConteiner<Device> sort(ListConteiner<Device> devices)
-			throws DeviceNullException, ListConteinerException {
+			throws  ListConteinerException {
 		if (devices != null && devices.size() != 0) {
 
 			return doQuickSort(devices, 0, devices.size() - 1);
-		}
-		throw new DeviceNullException("Not found devices");
-	}
+		
+	}return null;}
 
 	private static ListConteiner<Device> doQuickSort(ListConteiner<Device> devices, int left, int rightInclusive)
 			throws ListConteinerException {
@@ -231,7 +221,7 @@ public class UsingDevices {
 	}
 
 	public static Device findMaxPower(Home home)
-			throws NoSuchRoomException, NoSuchDeviceException, HomeNullException, ListConteinerException {
+			throws NoSuchRoomException, NoSuchDeviceException, ListConteinerException {
 
 		if (home != null && home.size() != 0) {
 			ListConteiner<Device> devices = findAllDevices(home);
@@ -247,7 +237,7 @@ public class UsingDevices {
 			}
 			throw new NoSuchDeviceException("There is no device.");
 		}
-		throw new HomeNullException("Home is null");
+		return null;
 	}
 
 }
