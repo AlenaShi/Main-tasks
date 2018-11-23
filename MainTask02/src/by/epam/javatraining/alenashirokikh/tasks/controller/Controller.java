@@ -9,7 +9,6 @@ import by.epam.javatraining.alenashirokikh.tasks.model.entity.Refrigerator;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Room;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.EquipmentLogicException;
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.ListConteinerException;
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchRoomException;
 import by.epam.javatraining.alenashirokikh.tasks.model.logic.UsingDevices;
 import by.epam.javatraining.alenashirokikh.tasks.util.Creator;
 import by.epam.javatraining.alenashirokikh.tasks.view.LoggerType;
@@ -50,13 +49,10 @@ public class Controller {
 			printLog.printError("Problems with listConteiner");
 		} catch (EquipmentLogicException e) {
 			// TODO Auto-generated catch block
-			printLog.printError("Problems with device");
+			printLog.printError("Problems with equipment");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			printLog.printError("Problems with file");
-		} catch (NoSuchRoomException e) {
-			// TODO Auto-generated catch block
-			printLog.printError("Problems with room");
-		} 
+		}
 	}
 }

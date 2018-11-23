@@ -88,6 +88,6 @@ public class Refrigerator extends Equipment {
 	}
 
 	public String toString() {
-		return super.toString() + "volume - " + this.getVolume();
+		return super.toString() + " volume - " + this.getVolume();
 	}
 }

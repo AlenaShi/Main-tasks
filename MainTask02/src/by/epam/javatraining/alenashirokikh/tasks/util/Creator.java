@@ -70,7 +70,7 @@ public class Creator {
 
 	public static Equipment createDevice(Room room, String infoDevice)
 			throws SwitchOffEquipmentException, NoSuchEquipmentException {
-		Equipment device = null;
+		Equipment equipment = null;
 		int power;
 		if (infoDevice != null) {
 			String[] info = infoDevice.split(",");
@@ -81,85 +81,85 @@ public class Creator {
 			}
 			switch (info[0].toLowerCase()) {
 			case "refrigerator":
-				device = new Refrigerator(power);
-				room.addDevice(device);
+				equipment = new Refrigerator(power);
+				room.addDevice(equipment);
 				break;
 			case "washing machine":
-				device = new WashingMachine(power);
-				room.addDevice(device);
+				equipment = new WashingMachine(power);
+				room.addDevice(equipment);
 				break;
 			case "dishwasher":
-				device = new DishWasher(power);
-				room.addDevice(device);
+				equipment = new DishWasher(power);
+				room.addDevice(equipment);
 				break;
 			case "vacuum cleaner":
-				device = new VacuumCleaner(power);
-				room.addDevice(device);
+				equipment = new VacuumCleaner(power);
+				room.addDevice(equipment);
 				break;
 			}
 
 			if (info.length > 2) {
 				for (int i = 2; i < info.length; i++) {
 					if (info[i].contains("switchOn")) {
-						device.switchOn();
+						equipment.switchOn();
 
 					} else if (info[i].contains("switchOff")) {
-						device.switchOff();
+						equipment.switchOff();
 
-					} else if (info[i].contains("setTemperature") && device.getClass() == Refrigerator.class) {
+					} else if (info[i].contains("setTemperature") && equipment.getClass() == Refrigerator.class) {
 						String temperature = null;
 						for (int j = 0; j < info[i].length(); j++) {
 							if (Character.isDigit(info[i].charAt(j))) {
 								temperature += info[i].charAt(j);
 							}
 						}
-						((Refrigerator) device).setTemperature(Integer.parseInt(temperature));
-					} else if (info[i].contains("setFreezerTemperature") && device.getClass() == Refrigerator.class) {
+						((Refrigerator) equipment).setTemperature(Integer.parseInt(temperature));
+					} else if (info[i].contains("setFreezerTemperature") && equipment.getClass() == Refrigerator.class) {
 						String temperature = null;
 						for (int j = 0; j < info[i].length(); j++) {
 							if (Character.isDigit(info[i].charAt(j))) {
 								temperature += info[i].charAt(j);
 							}
 						}
-						((Refrigerator) device).setFreezerTemperature(Integer.parseInt(temperature));
+						((Refrigerator) equipment).setFreezerTemperature(Integer.parseInt(temperature));
 
-					} else if (info[i].contains("wash") && device.getClass() == WashingMachine.class) {
+					} else if (info[i].contains("wash") && equipment.getClass() == WashingMachine.class) {
 						if (info[i].contains("EVERYDAY")) {
-							((WashingMachine) device).wash(WashingTypes.EVERYDAY);
+							((WashingMachine) equipment).wash(WashingTypes.EVERYDAY);
 						}
 
 						else if (info[i].contains("SOFT")) {
-							((WashingMachine) device).wash(WashingTypes.SOFT);
+							((WashingMachine) equipment).wash(WashingTypes.SOFT);
 						} else if (info[i].contains("COTTON")) {
-							((WashingMachine) device).wash(WashingTypes.COTTON);
+							((WashingMachine) equipment).wash(WashingTypes.COTTON);
 						} else if (info[i].contains("CLEANING")) {
-							((WashingMachine) device).wash(WashingTypes.CLEANING);
+							((WashingMachine) equipment).wash(WashingTypes.CLEANING);
 						} else if (info[i].contains("SPINNING")) {
-							((WashingMachine) device).wash(WashingTypes.SPINNING);
+							((WashingMachine) equipment).wash(WashingTypes.SPINNING);
 						} else if (info[i].contains("RINSING")) {
-							((WashingMachine) device).wash(WashingTypes.RINSING);
+							((WashingMachine) equipment).wash(WashingTypes.RINSING);
 						}
 
-					} else if (info[i].contains("wash") && device.getClass() == DishWasher.class) {
+					} else if (info[i].contains("wash") && equipment.getClass() == DishWasher.class) {
 						if (info[i].contains("ECO")) {
-							((DishWasher) device).wash(DishWashingTypes.ECO);
+							((DishWasher) equipment).wash(DishWashingTypes.ECO);
 						} else if (info[i].contains("ECONOM")) {
-							((DishWasher) device).wash(DishWashingTypes.ECONOM);
+							((DishWasher) equipment).wash(DishWashingTypes.ECONOM);
 						} else if (info[i].contains("INTENSIVE")) {
-							((DishWasher) device).wash(DishWashingTypes.INTENSIVE);
+							((DishWasher) equipment).wash(DishWashingTypes.INTENSIVE);
 						} else if (info[i].contains("GLASS")) {
-							((DishWasher) device).wash(DishWashingTypes.GLASS);
+							((DishWasher) equipment).wash(DishWashingTypes.GLASS);
 						}
 
-					} else if (info[i].contains("stopWash") && device.getClass() == WashingMachine.class) {
-						((WashingMachine) device).stopWash();
+					} else if (info[i].contains("stopWash") && equipment.getClass() == WashingMachine.class) {
+						((WashingMachine) equipment).stopWash();
 
-					} else if (info[i].contains("stopWash") && device.getClass() == DishWasher.class) {
-						((DishWasher) device).stopWash();
+					} else if (info[i].contains("stopWash") && equipment.getClass() == DishWasher.class) {
+						((DishWasher) equipment).stopWash();
 					}
 				}
 			}
-			return device;
+			return equipment;
 		} else
 			throw new NoSuchEquipmentException("No such device in file");
 	}

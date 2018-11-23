@@ -49,7 +49,7 @@ public class Equipment implements Comparable<Equipment> {
 
 	public void switchOff() {
 		on = false;
-		working=false;
+		working = false;
 	}
 
 	public boolean isSwitchOn() {
@@ -57,7 +57,7 @@ public class Equipment implements Comparable<Equipment> {
 	}
 
 	public String getName() {
-		return this.getClass().toString();
+		return this.getClass().getName();
 	}
 
 	@Override
