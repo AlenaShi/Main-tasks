@@ -15,10 +15,13 @@ public class Refrigerator extends Equipment {
 	}
 
 	public Refrigerator(int power) {
+		super(power);
 	}
 
 	public Refrigerator(int power, double volume) {
+		super(power);
 		this.volume = volume;
+		
 	}
 
 	public Refrigerator(int power, double volume, int temperature, int freezerTemperature) {

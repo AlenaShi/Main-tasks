@@ -57,7 +57,7 @@ public class Equipment implements Comparable<Equipment> {
 	}
 
 	public String getName() {
-		return this.getClass().getName();
+		return this.getClass().getSimpleName();
 	}
 
 	@Override

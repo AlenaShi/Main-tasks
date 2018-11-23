@@ -95,6 +95,6 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return roomName + " " + this.getList().toString();
+		return roomName + ": " + this.getList().toString();
 	}
 }
