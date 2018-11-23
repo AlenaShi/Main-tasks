@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.Equipment;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWasher;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
@@ -22,9 +22,9 @@ import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffD
 
 public class UsingDevicesTest {
 	private static Home home;
-	private static Device ref;
+	private static Equipment ref;
 	private static WashingMachine wm;
-	private static Device dw;
+	private static Equipment dw;
 
 	@BeforeClass
 	public static void init() throws ListConteinerOutOfBoundException, NoSuchRoomException,
@@ -120,7 +120,7 @@ public class UsingDevicesTest {
 	@Test
 	public void sortTest() throws ListConteinerException, NoSuchRoomException, DeviceException {
 		String expected = "DishWasher has 1100Vt power Refrigerator has 1000Vt power Washing machine has 1200Vt power";
-		ListConteiner<Device> list = new ListConteiner<Device>();
+		ListConteiner<Equipment> list = new ListConteiner<Equipment>();
 		list.add(wm);
 		list.add(ref);
 		list.add(dw);

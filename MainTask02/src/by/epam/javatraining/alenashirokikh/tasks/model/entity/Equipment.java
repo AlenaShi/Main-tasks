@@ -6,17 +6,17 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  * @author Alena Shirokikh
  * @version 1.0 22.11.2018
  */
-public class Device implements Comparable<Device> {
+public class Equipment implements Comparable<Equipment> {
 	private boolean on;
-	private int power;
+	protected int power;
 	private Room room;
 	protected boolean working;
 
-	public Device() {
+	public Equipment() {
 		on = false;
 	}
 
-	public Device(int power) {
+	public Equipment(int power) {
 		on = false;
 		this.power = Math.abs(power);
 	}
@@ -49,6 +49,7 @@ public class Device implements Comparable<Device> {
 
 	public void switchOff() {
 		on = false;
+		working=false;
 	}
 
 	public boolean isSwitchOn() {
@@ -67,20 +68,19 @@ public class Device implements Comparable<Device> {
 		if (obj == null || obj.getClass() != this.getClass()) {
 			return false;
 		}
-		Device device = (Device) obj;
-		return this.getName() == device.getName() && this.getPower() == device.getPower();
+		Equipment device = (Equipment) obj;
+		return this.getPower() == device.getPower();
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 34;
 		int result = 1;
-		result = prime * result + (this.getName() == null ? 0 : this.getName().hashCode());
 		result = prime * result + (this.getPower() <= 0 ? 0 : this.getPower() * prime);
 		return result;
 	}
 
-	public int compareTo(Device device) {
+	public int compareTo(Equipment device) {
 		if (this.getName().compareTo(device.getName()) != 0) {
 			return this.getName().compareTo(device.getName());
 		} else {

@@ -8,22 +8,17 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DeviceTest {
-	private Device dev;
+public class EquipmentTest {
+	private Equipment dev;
 
 	@Before
 	public void init() {
-		dev = new Device(1200);
+		dev = new Equipment(1200);
 	}
 
 	@After
 	public void destroy() {
 		dev = null;
-	}
-
-	@Test
-	public void getNameTest() {
-		assertEquals("Device", dev.getName());
 	}
 
 	@Test
@@ -111,14 +106,6 @@ public class DeviceTest {
 	}
 
 	@Test
-	public void setAnotherNullRoomTest() {
-		Room room = new Room(RoomTypes.WASHROOM);
-		room.addDevice(dev);
-		dev.setRoom(null);
-		assertEquals(room, dev.getRoom());
-	}
-
-	@Test
 	public void getRoomTest() {
 		Room room = new Room(RoomTypes.WASHROOM);
 		room.addDevice(dev);
@@ -132,20 +119,14 @@ public class DeviceTest {
 	}
 
 	@Test
-	public void equalsRefTest() {
-		Device dev2 = new Device(1200);
-		assertTrue(dev.equals(dev2));
-	}
-
-	@Test
 	public void equalsDifferentRefTest() {
-		Device dev2 = new Device(1000);
+		Equipment dev2 = new Equipment(1000);
 		assertFalse(dev.equals(dev2));
 	}
 
 	@Test
 	public void equalsRefWithNullTest() {
-		Device wm2 = null;
+		Equipment wm2 = null;
 		assertFalse(dev.equals(wm2));
 	}
 
@@ -158,13 +139,13 @@ public class DeviceTest {
 	@Test(expected = NullPointerException.class)
 	public void equalsFromNullTest() {
 		dev = null;
-		Device dev2 = new Device(1000);
+		Equipment dev2 = new Equipment(1000);
 		dev.equals(dev2);
 	}
 
 	@Test
 	public void hashCodeTest() {
-		Device dev2 = new Device(1200);
+		Equipment dev2 = new Equipment(1200);
 		assertTrue(dev.hashCode() == dev2.hashCode());
 	}
 
@@ -176,7 +157,7 @@ public class DeviceTest {
 
 	@Test
 	public void hashCode2Test() {
-		Device wm2 = new WashingMachine(1000);
+		Equipment wm2 = new WashingMachine(1000);
 		assertFalse(dev.hashCode() == wm2.hashCode());
 	}
 }

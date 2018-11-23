@@ -8,7 +8,7 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 
-public class DishWasher extends Device {
+public class DishWasher extends Equipment {
 	private DishWashingTypes type;
 
 	public DishWasher() {

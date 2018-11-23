@@ -8,7 +8,7 @@ import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffD
  * @author Alena Shirokikh
  * @version 1.0 22.11.2018
  */
-public class VacuumCleaner extends Device {
+public class VacuumCleaner extends Equipment {
 	public VacuumCleaner() {
 	}
 

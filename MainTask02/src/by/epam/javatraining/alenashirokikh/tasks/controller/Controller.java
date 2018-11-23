@@ -2,7 +2,7 @@ package by.epam.javatraining.alenashirokikh.tasks.controller;
 
 import java.io.IOException;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.Equipment;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Refrigerator;
@@ -22,7 +22,7 @@ public class Controller {
 		try {
 			Home home = Creator.create("D://array.txt");
 			Refrigerator ref2 = new Refrigerator(1200);
-			ListConteiner<Device> list = Creator.createList(home);
+			ListConteiner<Equipment> list = Creator.createList(home);
 
 			int allPower = UsingDevices.findAllPower(home);
 			printLog.print(allPower);
@@ -33,7 +33,7 @@ public class Controller {
 			int powerWorking = UsingDevices.findPowerWorking(home);
 			printLog.print(powerWorking);
 
-			ListConteiner<Device> listSwitchedOn = UsingDevices.findSwitchedOn(home);
+			ListConteiner<Equipment> listSwitchedOn = UsingDevices.findSwitchedOn(home);
 			printLog.print(listSwitchedOn);
 
 			ListConteiner<Room> roomsWithDevices = UsingDevices.findRoomsWithDevices(Refrigerator.class, home);
@@ -42,7 +42,7 @@ public class Controller {
 			Room roomsWithRef = UsingDevices.findDevice(ref2, home);
 			printLog.print(roomsWithRef);
 
-			ListConteiner<Device> sortList = UsingDevices.sort(list);
+			ListConteiner<Equipment> sortList = UsingDevices.sort(list);
 			printLog.print(sortList);
 
 		} catch (ListConteinerException e) {

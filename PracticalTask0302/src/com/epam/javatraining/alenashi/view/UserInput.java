@@ -3,12 +3,13 @@ package com.epam.javatraining.alenashi.view;
 import java.util.Scanner;
 
 public class UserInput {
-	public static int getNumber() {
+	static Scanner in;
+	static {
+		in = new Scanner(System.in);
+	}
 
-		Scanner in = new Scanner(System.in);
-		System.out.println("Please, enter number.");
-		int number = in.nextInt();
-		in.close();
-		return number;
+	public static int readNumber(String msg) {
+		System.out.println(msg);
+		return in.nextInt();
 	}
 }

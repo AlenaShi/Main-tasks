@@ -8,7 +8,7 @@ package by.epam.javatraining.alenashirokikh.tasks.util;
  */
 import java.io.IOException;
 
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.Equipment;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWasher;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.DishWashingTypes;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
@@ -68,9 +68,9 @@ public class Creator {
 		return room;
 	}
 
-	public static Device createDevice(Room room, String infoDevice)
+	public static Equipment createDevice(Room room, String infoDevice)
 			throws UsingSwitchOffDeviceException, NoSuchDeviceException {
-		Device device = null;
+		Equipment device = null;
 		int power;
 		if (infoDevice != null) {
 			String[] info = infoDevice.split(",");
@@ -173,9 +173,9 @@ public class Creator {
 		return false;
 	}
 
-	public static ListConteiner<Device> createList(Home home)
+	public static ListConteiner<Equipment> createList(Home home)
 			throws  NoSuchDeviceException, ListConteinerOutOfBoundException, NoSuchRoomException {
-		ListConteiner<Device> list = new ListConteiner<Device>();
+		ListConteiner<Equipment> list = new ListConteiner<Equipment>();
 		for (int i = 0; i < home.size(); i++) {
 			for (int j = 0; j < home.getRoom(i).devicesListSize(); j++) {
 				list.add(home.getRoom(i).getDevice(j));

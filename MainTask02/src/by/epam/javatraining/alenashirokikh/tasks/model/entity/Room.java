@@ -12,9 +12,9 @@ import by.epam.javatraining.alenashirokikh.tasks.model.exception.NoSuchDeviceExc
 public class Room {
 	RoomTypes type;
 	private String roomName;
-	ListConteiner<Device> devices = new ListConteiner<>();
+	ListConteiner<Equipment> devices = new ListConteiner<>();
 
-	Room() {
+	public Room() {
 		type = RoomTypes.HALL;
 		roomName = type.name().toLowerCase();
 	}
@@ -37,7 +37,7 @@ public class Room {
 		return roomName;
 	}
 
-	public void addDevice(Device device) {
+	public void addDevice(Equipment device) {
 		if (device != null) {
 			if (!device.hasRoom()) {
 				device.setRoom(this);
@@ -50,7 +50,7 @@ public class Room {
 		}
 	}
 
-	public void deleteDevice(Device device) {
+	public void deleteDevice(Equipment device) {
 		if (devices.remove(device)) {
 			device.setRoom(null);
 		}
@@ -60,7 +60,7 @@ public class Room {
 		return devices.size();
 	}
 
-	public Device getDevice(int index) throws NoSuchDeviceException, ListConteinerOutOfBoundException {
+	public Equipment getDevice(int index) throws NoSuchDeviceException, ListConteinerOutOfBoundException {
 		if (index >= 0 && index < devices.size()) {
 			return devices.get(index);
 		} else {
@@ -68,7 +68,7 @@ public class Room {
 		}
 	}
 
-	public ListConteiner<Device> getList() {
+	public ListConteiner<Equipment> getList() {
 		return devices;
 	}
 
@@ -95,6 +95,6 @@ public class Room {
 
 	@Override
 	public String toString() {
-		return roomName;
+		return roomName + " " + this.getList().toString();
 	}
 }

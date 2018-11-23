@@ -7,7 +7,7 @@ package by.epam.javatraining.alenashirokikh.tasks.model.logic;
  * @author Alena Shirokikh
  * @version 1.0 22.11.2018
  */
-import by.epam.javatraining.alenashirokikh.tasks.model.entity.Device;
+import by.epam.javatraining.alenashirokikh.tasks.model.entity.Equipment;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Home;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.ListConteiner;
 import by.epam.javatraining.alenashirokikh.tasks.model.entity.Room;
@@ -67,9 +67,9 @@ public class UsingDevices {
 		return sum;
 	}
 
-	public static ListConteiner<Device> findWithPower(int power, Home home)
+	public static ListConteiner<Equipment> findWithPower(int power, Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<Device> result = new ListConteiner<Device>();
+		ListConteiner<Equipment> result = new ListConteiner<Equipment>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
 				int size = home.getRoom(i).devicesListSize();
@@ -84,9 +84,9 @@ public class UsingDevices {
 
 	}
 
-	public static ListConteiner<Device> findWithType(Class<? extends Device> clazz, Home home)
+	public static ListConteiner<Equipment> findWithType(Class<? extends Equipment> clazz, Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<Device> result = new ListConteiner<Device>();
+		ListConteiner<Equipment> result = new ListConteiner<Equipment>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
 				int size = home.getRoom(i).devicesListSize();
@@ -100,9 +100,9 @@ public class UsingDevices {
 		return result;
 	}
 
-	public static ListConteiner<Device> findWorking(Home home)
+	public static ListConteiner<Equipment> findWorking(Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<Device> result = new ListConteiner<Device>();
+		ListConteiner<Equipment> result = new ListConteiner<Equipment>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
 				int size = home.getRoom(i).devicesListSize();
@@ -116,9 +116,9 @@ public class UsingDevices {
 		return result;
 	}
 
-	public static ListConteiner<Device> findAllDevices(Home home)
+	public static ListConteiner<Equipment> findAllDevices(Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<Device> result = new ListConteiner<Device>();
+		ListConteiner<Equipment> result = new ListConteiner<Equipment>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
 				int size = home.getRoom(i).devicesListSize();
@@ -130,9 +130,9 @@ public class UsingDevices {
 		return result;
 	}
 
-	public static ListConteiner<Device> findSwitchedOn(Home home)
+	public static ListConteiner<Equipment> findSwitchedOn(Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
-		ListConteiner<Device> result = new ListConteiner<Device>();
+		ListConteiner<Equipment> result = new ListConteiner<Equipment>();
 		if (home != null && home.size() != 0) {
 			for (int i = 0; i < home.size(); i++) {
 				int size = home.getRoom(i).devicesListSize();
@@ -147,7 +147,7 @@ public class UsingDevices {
 
 	}
 
-	public static ListConteiner<Room> findRoomsWithDevices(Class<? extends Device> clazz, Home home)
+	public static ListConteiner<Room> findRoomsWithDevices(Class<? extends Equipment> clazz, Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		ListConteiner<Room> result = new ListConteiner<Room>();
 		if (home != null && home.size() != 0) {
@@ -163,7 +163,7 @@ public class UsingDevices {
 		return result;
 	}
 
-	public static Room findDevice(Device device, Home home)
+	public static Room findDevice(Equipment device, Home home)
 			throws ListConteinerException, NoSuchRoomException, NoSuchDeviceException {
 		if (home != null && home.size() != 0) {
 			if (device != null) {
@@ -181,7 +181,7 @@ public class UsingDevices {
 		return null;
 	}
 
-	public static ListConteiner<Device> sort(ListConteiner<Device> devices)
+	public static ListConteiner<Equipment> sort(ListConteiner<Equipment> devices)
 			throws  ListConteinerException {
 		if (devices != null && devices.size() != 0) {
 
@@ -189,13 +189,13 @@ public class UsingDevices {
 		
 	}return null;}
 
-	private static ListConteiner<Device> doQuickSort(ListConteiner<Device> devices, int left, int rightInclusive)
+	private static ListConteiner<Equipment> doQuickSort(ListConteiner<Equipment> devices, int left, int rightInclusive)
 			throws ListConteinerException {
 
 		int i = left;
 		int j = rightInclusive;
-		Device p = devices.get((left + rightInclusive) / 2);
-		Device temp;
+		Equipment p = devices.get((left + rightInclusive) / 2);
+		Equipment temp;
 
 		do {
 			while (devices.get(i).compareTo(p) < 0) {
@@ -220,13 +220,13 @@ public class UsingDevices {
 		return devices;
 	}
 
-	public static Device findMaxPower(Home home)
+	public static Equipment findMaxPower(Home home)
 			throws NoSuchRoomException, NoSuchDeviceException, ListConteinerException {
 
 		if (home != null && home.size() != 0) {
-			ListConteiner<Device> devices = findAllDevices(home);
+			ListConteiner<Equipment> devices = findAllDevices(home);
 			if (devices.size() != 0) {
-				Device max = devices.get(0);
+				Equipment max = devices.get(0);
 				for (int i = 1; i < devices.size(); i++) {
 					if (devices.get(i).compareTo(max) > 0) {
 						max = devices.get(i);

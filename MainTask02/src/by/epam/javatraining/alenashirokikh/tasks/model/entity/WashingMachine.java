@@ -8,7 +8,7 @@ package by.epam.javatraining.alenashirokikh.tasks.model.entity;
  */
 import by.epam.javatraining.alenashirokikh.tasks.model.exception.UsingSwitchOffDeviceException;
 
-public class WashingMachine extends Device {
+public class WashingMachine extends Equipment {
 	private WashingTypes type;
 
 	public WashingMachine() {

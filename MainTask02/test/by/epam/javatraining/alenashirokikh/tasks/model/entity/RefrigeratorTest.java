@@ -56,13 +56,13 @@ public class RefrigeratorTest {
 
 	@Test
 	public void equalsDifferentRefTest() {
-		Device ref2 = new Refrigerator(1000);
+		Equipment ref2 = new Refrigerator(1000);
 		assertFalse(ref.equals(ref2));
 	}
 
 	@Test
 	public void equalsRefWithNullTest() {
-		Device ref2 = null;
+		Equipment ref2 = null;
 		assertFalse(ref.equals(ref2));
 	}
 
@@ -75,13 +75,13 @@ public class RefrigeratorTest {
 	@Test(expected = NullPointerException.class)
 	public void equalsFromNullTest() {
 		ref = null;
-		Device ref2 = new Refrigerator(1000);
+		Equipment ref2 = new Refrigerator(1000);
 		ref.equals(ref2);
 	}
 
 	@Test
 	public void hashCodeTest() {
-		Device ref2 = new Refrigerator(1200);
+		Equipment ref2 = new Refrigerator(1200);
 		assertTrue(ref.hashCode() == ref2.hashCode());
 	}
 
