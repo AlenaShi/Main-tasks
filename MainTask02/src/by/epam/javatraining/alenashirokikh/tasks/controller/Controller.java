@@ -20,7 +20,7 @@ public class Controller {
 		Printable printLog = PrinterCreator.create(LoggerType.LOGGER);
 		try {
 			Home home = Creator.create("D://array.txt");
-			Refrigerator ref2 = new Refrigerator(1200);
+			Refrigerator ref2 = new Refrigerator(1200,"ert345h");
 			ListConteiner<Equipment> list = Creator.createList(home);
 
 			int allPower = UsingDevices.findAllPower(home);

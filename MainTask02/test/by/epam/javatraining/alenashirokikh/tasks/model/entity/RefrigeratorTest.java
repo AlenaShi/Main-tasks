@@ -13,7 +13,7 @@ public class RefrigeratorTest {
 
 	@Before
 	public void init() {
-		ref = new Refrigerator(1200);
+		ref = new Refrigerator(1200, "ert345h");
 	}
 
 	@After
@@ -28,7 +28,7 @@ public class RefrigeratorTest {
 
 	@Test
 	public void getVolumeTest() {
-		ref = new Refrigerator(1000, 100, 5, -14);
+		ref = new Refrigerator(1000, "ert345h", 100, 5, -14);
 		assertEquals(100, ref.getVolume(), 0.001);
 	}
 
@@ -56,7 +56,7 @@ public class RefrigeratorTest {
 
 	@Test
 	public void equalsDifferentRefTest() {
-		Equipment ref2 = new Refrigerator(1000);
+		Equipment ref2 = new Refrigerator(1000, "ert345h");
 		assertFalse(ref.equals(ref2));
 	}
 
@@ -75,13 +75,13 @@ public class RefrigeratorTest {
 	@Test(expected = NullPointerException.class)
 	public void equalsFromNullTest() {
 		ref = null;
-		Equipment ref2 = new Refrigerator(1000);
+		Equipment ref2 = new Refrigerator(1000, "ert345h");
 		ref.equals(ref2);
 	}
 
 	@Test
 	public void hashCodeTest() {
-		Equipment ref2 = new Refrigerator(1200);
+		Equipment ref2 = new Refrigerator(1200, "ert345h");
 		assertTrue(ref.hashCode() == ref2.hashCode());
 	}
 

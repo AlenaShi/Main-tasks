@@ -1,38 +1,33 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-/**
- * The program describe dishwasher.
- * 
- * @author Alena Shirokikh
- * @version 1.0 22.11.2018
- */
-import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipmentException;
-
 public class DishWasher extends Equipment {
 	private DishWashingTypes type;
+	public final static DishWashingTypes DEFAULT_TYPE = DishWashingTypes.ECO;
 
 	public DishWasher() {
 	}
 
-	public DishWasher(int power) {
+	public DishWasher(int power, String model) {
+		super(power, model);
 	}
 
-	public void wash(DishWashingTypes type) throws SwitchOffEquipmentException {
+	@Override
+	public void work() {
+		if (this.isSwitchOn()) {
+			this.type = DEFAULT_TYPE;
+			super.work();
+		}
+	}
+
+	public void work(DishWashingTypes type) {
 		if (this.isSwitchOn()) {
 			this.type = type;
-			working = true;
-		} else {
-			throw new SwitchOffEquipmentException("You should switch on your dishwasher");
+			super.work();
 		}
 	}
 
-	public void stopWash() {
-		if (this.isWorking()) {
-			working = false;
-		}
-	}
 	public enum DishWashingTypes {
 		ECO, ECONOM, INTENSIVE, GLASS
 	}
-	
+
 }

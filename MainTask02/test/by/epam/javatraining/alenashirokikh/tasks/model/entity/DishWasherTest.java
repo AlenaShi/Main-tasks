@@ -14,7 +14,7 @@ public class DishWasherTest {
 
 	@Before
 	public void init() {
-		dw = new DishWasher(1200);
+		dw = new DishWasher(1200, "ert345h");
 	}
 
 	@After
@@ -23,28 +23,28 @@ public class DishWasherTest {
 	}
 
 	@Test
-	public void washTest() throws SwitchOffEquipmentException {
+	public void workTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
 		dw.switchOn();
-		dw.wash(DishWashingTypes.GLASS);
+		dw.work(DishWashingTypes.GLASS);
 		assertTrue(dw.isWorking());
 	}
 
-	@Test(expected=SwitchOffEquipmentException.class)
-	public void washSwitchOffTest() throws SwitchOffEquipmentException {
+	@Test(expected = SwitchOffEquipmentException.class)
+	public void workSwitchOffTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
-		dw.wash(DishWashingTypes.GLASS);
+		dw.work(DishWashingTypes.GLASS);
 	}
 
 	@Test
-	public void stopWashTest() throws SwitchOffEquipmentException {
+	public void stopWorkTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(dw);
 		dw.switchOn();
-		dw.wash(DishWashingTypes.GLASS);
-		dw.stopWash();
+		dw.work(DishWashingTypes.GLASS);
+		dw.stopWork();
 		assertFalse(dw.isWorking());
 	}
 

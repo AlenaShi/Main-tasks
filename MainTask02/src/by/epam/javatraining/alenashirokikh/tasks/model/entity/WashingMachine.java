@@ -10,25 +10,27 @@ import by.epam.javatraining.alenashirokikh.tasks.model.exception.SwitchOffEquipm
 
 public class WashingMachine extends Equipment {
 	private WashingTypes type;
+	public final static WashingTypes DEFAULT_TYPE = WashingTypes.EVERYDAY;
 
 	public WashingMachine() {
 	}
 
-	public WashingMachine(int power) {
+	public WashingMachine(int power, String model) {
+		super(power, model);
 	}
 
-	public void wash(WashingTypes type) throws SwitchOffEquipmentException {
+	@Override
+	public void work() {
 		if (this.isSwitchOn()) {
-			this.type = type;
-			working = true;
-		} else {
-			throw new SwitchOffEquipmentException("You should switch on your washing machine");
+			this.type = DEFAULT_TYPE;
+			super.work();
 		}
 	}
 
-	public void stopWash() {
-		if (this.isWorking()) {
-			working = false;
+	public void work(WashingTypes type) throws SwitchOffEquipmentException {
+		if (this.isSwitchOn()) {
+			this.type = type;
+			super.work();
 		}
 	}
 

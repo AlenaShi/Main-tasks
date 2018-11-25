@@ -10,15 +10,17 @@ public class Equipment implements Comparable<Equipment> {
 	private boolean on;
 	protected int power;
 	private Room room;
-	protected boolean working;
+	private boolean working;
+	private String model;
 
 	public Equipment() {
 		on = false;
 	}
 
-	public Equipment(int power) {
+	public Equipment(int power, String model) {
 		on = false;
 		this.power = Math.abs(power);
+		this.model = model;
 	}
 
 	public boolean isWorking() {
@@ -27,6 +29,10 @@ public class Equipment implements Comparable<Equipment> {
 
 	public int getPower() {
 		return power;
+	}
+
+	public String getModel() {
+		return model;
 	}
 
 	void setRoom(Room room) {
@@ -56,6 +62,16 @@ public class Equipment implements Comparable<Equipment> {
 		return on;
 	}
 
+	public void work() {
+		if (isSwitchOn()) {
+			working = true;
+		}
+	}
+
+	public void stopWork() {
+		working = false;
+	}
+
 	public String getName() {
 		return this.getClass().getSimpleName();
 	}
@@ -69,7 +85,7 @@ public class Equipment implements Comparable<Equipment> {
 			return false;
 		}
 		Equipment device = (Equipment) obj;
-		return this.getPower() == device.getPower();
+		return this.model.equals(device.model) && this.getPower() == device.getPower();
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.entity;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,7 +13,7 @@ public class VacuumCleanerTest {
 
 	@Before
 	public void init() {
-		vc = new VacuumCleaner(1200);
+		vc = new VacuumCleaner(1200, "ert345h", 44);
 	}
 
 	@After
@@ -27,15 +26,21 @@ public class VacuumCleanerTest {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
 		vc.switchOn();
-		vc.clean();
+		vc.work();
 		assertTrue(vc.isWorking());
 	}
 
-	@Test(expected = SwitchOffEquipmentException.class)
+	@Test
+	public void getNoise() {
+		assertEquals(44, vc.getNoise(), 0.00001);
+	}
+
+	@Test
 	public void clean0Test() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
-		vc.clean();
+		vc.work();
+		assertFalse(vc.isWorking());
 	}
 
 	@Test
@@ -43,8 +48,8 @@ public class VacuumCleanerTest {
 		Room room = new Room(RoomTypes.STOREROOM);
 		room.addDevice(vc);
 		vc.switchOn();
-		vc.clean();
-		vc.stopClean();
+		vc.work();
+		vc.stopWork();
 		assertFalse(vc.isWorking());
 	}
 

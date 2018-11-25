@@ -63,7 +63,7 @@ public class RoomTest {
 	@Test
 	public void addDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
-		Equipment ref = new Refrigerator(1200);
+		Equipment ref = new Refrigerator(1200, "ert345h");
 		room.addDevice(ref);
 		assertEquals(1, room.devicesListSize());
 	}
@@ -71,14 +71,14 @@ public class RoomTest {
 	@Test(expected = NullPointerException.class)
 	public void addToNullTest() {
 		room = null;
-		Refrigerator ref = new Refrigerator(1200);
+		Refrigerator ref = new Refrigerator(1200, "ert345h");
 		room.addDevice(ref);
 	}
 
 	@Test
 	public void addDeviceToOtherRoomTest() {
 		room = new Room(RoomTypes.KITCHEN);
-		Equipment ref = new Refrigerator(1200);
+		Equipment ref = new Refrigerator(1200, "ert345h");
 		room.addDevice(ref);
 		Room room2 = new Room(RoomTypes.KITCHEN);
 		room2.addDevice(ref);
@@ -88,7 +88,7 @@ public class RoomTest {
 	@Test
 	public void deleteDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
-		Equipment ref = new Refrigerator(1200);
+		Equipment ref = new Refrigerator(1200, "ert345h");
 		room.addDevice(ref);
 		room.deleteDevice(ref);
 		assertEquals(0, room.devicesListSize());
@@ -97,16 +97,16 @@ public class RoomTest {
 	@Test
 	public void deleteOtherDeviceTest() {
 		room = new Room(RoomTypes.KITCHEN);
-		Equipment ref = new Refrigerator(1200);
+		Equipment ref = new Refrigerator(1200, "ert345h");
 		room.addDevice(ref);
-		room.deleteDevice(new Refrigerator(1000));
+		room.deleteDevice(new Refrigerator(1000, "ert345h"));
 		assertEquals(1, room.devicesListSize());
 	}
 
 	@Test(expected = NullPointerException.class)
 	public void deleteFromNullTest() {
 		room = null;
-		room.deleteDevice(new Refrigerator(1000));
+		room.deleteDevice(new Refrigerator(1000, "ert345h"));
 	}
 
 	@Test
@@ -124,8 +124,8 @@ public class RoomTest {
 	@Test
 	public void getDeviceTest() throws ListConteinerException, NoSuchEquipmentException {
 		room = new Room(RoomTypes.KITCHEN);
-		Equipment ref = new Refrigerator(1200);
-		Equipment wm = new WashingMachine(1200);
+		Equipment ref = new Refrigerator(1200, "ert345h");
+		Equipment wm = new WashingMachine(1200, "ert345h");
 		room.addDevice(ref);
 		room.addDevice(wm);
 		assertEquals(wm, room.getDevice(1));
@@ -176,7 +176,7 @@ public class RoomTest {
 	@Test
 	public void equalsRoomWithOtherClassTest() {
 		room = new Room(RoomTypes.KITCHEN, "kitchen");
-		Equipment dev = new Refrigerator(1000);
+		Equipment dev = new Refrigerator(1000, "ert345h");
 		assertFalse(room.equals(dev));
 	}
 

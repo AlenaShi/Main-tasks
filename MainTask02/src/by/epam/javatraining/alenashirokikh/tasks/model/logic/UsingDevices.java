@@ -1,5 +1,7 @@
 package by.epam.javatraining.alenashirokikh.tasks.model.logic;
 
+import java.util.Comparator;
+
 /**
  * The program find power for devices in different conditions, find device in home, 
  * find what devices are in home, find in which rooms are devices of determined type, sort devices.
@@ -181,13 +183,14 @@ public class UsingDevices {
 		return null;
 	}
 
-	public static ListConteiner<Equipment> sort(ListConteiner<Equipment> devices)
-			throws  ListConteinerException {
+	public static ListConteiner<Equipment> sort(ListConteiner<Equipment> devices) throws ListConteinerException {
 		if (devices != null && devices.size() != 0) {
 
 			return doQuickSort(devices, 0, devices.size() - 1);
-		
-	}return null;}
+
+		}
+		return null;
+	}
 
 	private static ListConteiner<Equipment> doQuickSort(ListConteiner<Equipment> devices, int left, int rightInclusive)
 			throws ListConteinerException {
@@ -240,4 +243,13 @@ public class UsingDevices {
 		return null;
 	}
 
+	class PowerComparator implements Comparator<Equipment> {
+
+		@Override
+		public int compare(Equipment o1, Equipment o2) {
+			// TODO Auto-generated method stub
+			return o1.getPower() - o2.getPower();
+		}
+
+	}
 }

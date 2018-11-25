@@ -13,7 +13,7 @@ public class EquipmentTest {
 
 	@Before
 	public void init() {
-		dev = new Equipment(1200);
+		dev = new Equipment(1200, "ert345h");
 	}
 
 	@After
@@ -28,7 +28,7 @@ public class EquipmentTest {
 	}
 
 	@Test
-	public void switchOnTest(){
+	public void switchOnTest() {
 		Room room = new Room(RoomTypes.WASHROOM);
 		room.addDevice(dev);
 		dev.switchOn();
@@ -79,7 +79,7 @@ public class EquipmentTest {
 	}
 
 	@Test
-	public void hasNoRoomTest(){
+	public void hasNoRoomTest() {
 		assertFalse(dev.hasRoom());
 	}
 
@@ -120,7 +120,7 @@ public class EquipmentTest {
 
 	@Test
 	public void equalsDifferentRefTest() {
-		Equipment dev2 = new Equipment(1000);
+		Equipment dev2 = new Equipment(1000, "");
 		assertFalse(dev.equals(dev2));
 	}
 
@@ -139,13 +139,13 @@ public class EquipmentTest {
 	@Test(expected = NullPointerException.class)
 	public void equalsFromNullTest() {
 		dev = null;
-		Equipment dev2 = new Equipment(1000);
+		Equipment dev2 = new Equipment(1000, "ert345h");
 		dev.equals(dev2);
 	}
 
 	@Test
 	public void hashCodeTest() {
-		Equipment dev2 = new Equipment(1200);
+		Equipment dev2 = new Equipment(1200, "ert345h");
 		assertTrue(dev.hashCode() == dev2.hashCode());
 	}
 
@@ -157,7 +157,7 @@ public class EquipmentTest {
 
 	@Test
 	public void hashCode2Test() {
-		Equipment wm2 = new WashingMachine(1000);
+		Equipment wm2 = new WashingMachine(1000, "ert345h");
 		assertFalse(dev.hashCode() == wm2.hashCode());
 	}
 }

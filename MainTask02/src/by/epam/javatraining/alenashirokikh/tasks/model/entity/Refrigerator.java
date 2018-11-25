@@ -14,19 +14,19 @@ public class Refrigerator extends Equipment {
 	public Refrigerator() {
 	}
 
-	public Refrigerator(int power) {
-		super(power);
+	public Refrigerator(int power, String model) {
+		super(power, model);
 	}
 
-	public Refrigerator(int power, double volume) {
-		super(power);
+	public Refrigerator(int power, String model, double volume) {
+		super(power, model);
 		this.volume = volume;
-		
+
 	}
 
-	public Refrigerator(int power, double volume, int temperature, int freezerTemperature) {
-		this.power=power;
-		this.volume=volume;
+	public Refrigerator(int power, String model, double volume, int temperature, int freezerTemperature) {
+		super(power, model);
+		this.volume = volume;
 		this.temperature = temperature;
 		this.freezerTemperature = freezerTemperature;
 	}
@@ -38,13 +38,13 @@ public class Refrigerator extends Equipment {
 	@Override
 	public void switchOn() {
 		super.switchOn();
-		working = true;
+		work();
 	}
 
 	@Override
 	public void switchOff() {
 		super.switchOff();
-		working = false;
+		stopWork();
 	}
 
 	public int getTemperature() {

@@ -15,7 +15,7 @@ public class WashingMachineTest {
 
 	@Before
 	public void init() {
-		wm = new WashingMachine(1200);
+		wm = new WashingMachine(1200, "ert345h");
 	}
 
 	@After
@@ -28,7 +28,7 @@ public class WashingMachineTest {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(wm);
 		wm.switchOn();
-		wm.wash(WashingTypes.COTTON);
+		wm.work(WashingTypes.COTTON);
 		assertTrue(wm.isWorking());
 	}
 
@@ -36,7 +36,7 @@ public class WashingMachineTest {
 	public void washSwitchOffTest() throws SwitchOffEquipmentException {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(wm);
-		wm.wash(WashingTypes.SOFT);
+		wm.work(WashingTypes.SOFT);
 	}
 
 	@Test
@@ -44,20 +44,20 @@ public class WashingMachineTest {
 		Room room = new Room(RoomTypes.KITCHEN);
 		room.addDevice(wm);
 		wm.switchOn();
-		wm.wash(WashingTypes.CLEANING);
-		wm.stopWash();
+		wm.work(WashingTypes.CLEANING);
+		wm.stopWork();
 		assertFalse(wm.isWorking());
 	}
 
 	@Test
 	public void equalsRefTest() {
-		Equipment wm2 = new WashingMachine(1200);
+		Equipment wm2 = new WashingMachine(1200, "ert345h");
 		assertTrue(wm.equals(wm2));
 	}
 
 	@Test
 	public void equalsDifferentRefTest() {
-		Equipment wm2 = new Refrigerator(1000);
+		Equipment wm2 = new Refrigerator(1000, "ert345h");
 		assertFalse(wm.equals(wm2));
 	}
 
@@ -76,13 +76,13 @@ public class WashingMachineTest {
 	@Test(expected = NullPointerException.class)
 	public void equalsFromNullTest() {
 		wm = null;
-		Equipment wm2 = new WashingMachine(1000);
+		Equipment wm2 = new WashingMachine(1000, "ert345h");
 		wm.equals(wm2);
 	}
 
 	@Test
 	public void hashCodeTest() {
-		Equipment wm2 = new WashingMachine(1200);
+		Equipment wm2 = new WashingMachine(1200, "ert345h");
 		assertTrue(wm.hashCode() == wm2.hashCode());
 	}
 
